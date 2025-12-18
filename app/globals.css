@@ -6,14 +6,20 @@
 
 :root {
   /* Colors */
-  --white: 255 255 255;     /* #FFFFFF */
-  --lime: 191 237 7;        /* #BFED07 */
-  --black: 0 0 0;           /* #000000 */
-  --near-black: 15 15 15;   /* #0F0F0F */
+  --white: 255 255 255;
+  /* #FFFFFF */
+  --lime: 191 237 7;
+  /* #BFED07 */
+  --black: 0 0 0;
+  /* #000000 */
+  --near-black: 15 15 15;
+  /* #0F0F0F */
 
   /* Layout */
-  --page-padding: 1.25rem; /* 20px */
-  --page-padding-md: 2rem; /* 32px */
+  --page-padding: 1.5rem;
+  /* 24px */
+  --page-padding-md: 3rem;
+  /* 48px */
 }
 
 /* Dark mode is intentional, not automatic */
@@ -50,11 +56,11 @@
   h1 {
     @apply text-4xl md:text-6xl font-bold tracking-tight;
   }
-  
+
   h2 {
     @apply text-2xl md:text-3xl font-semibold;
   }
-  
+
   p {
     @apply text-base leading-relaxed text-foreground/80;
   }
@@ -74,5 +80,3 @@
     }
   }
 }
-
-
