@@ -18,7 +18,7 @@
 
 /* Dark mode is intentional, not automatic */
 .dark {
-  --background: var(--near-black);
+  --background: var(--black);
   --foreground: var(--white);
 }
 
@@ -27,8 +27,8 @@
    =============================== */
 
 @theme inline {
-  --color-background: rgb(var(--white));
-  --color-foreground: rgb(var(--black));
+  --color-foreground: rgb(var(--white));
+  --color-background: rgb(var(--black));
   --color-primary: rgb(var(--lime));
   --color-muted: rgb(var(--near-black));
 
