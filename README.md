@@ -44,8 +44,8 @@ The event brings together **industry leaders, researchers, and practitioners** t
 | Purpose               | Color      | Hex       |
 | --------------------- | ---------- | --------- |
 | Primary Accent        | Lime       | `#BFED07` |
-| Background (Light)    | White      | `#FFFFFF` |
-| Text (Primary)        | Black      | `#000000` |
+| Text (Primary)        | White      | `#FFFFFF` |
+| Background (Light)    | Black      | `#000000` |
 | Muted / Dark Sections | Near Black | `#0F0F0F` |
 
 ❗ **Do NOT introduce new colors without approval**
