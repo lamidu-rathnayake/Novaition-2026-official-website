@@ -19,7 +19,7 @@ export default function Navbar() {
     ];
 
     return (
-        <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between py-4 bg-transparent" style={{ paddingLeft: 'var(--page-padding)', paddingRight: 'var(--page-padding)' }}>
+        <nav className="absolute top-0 left-0 right-0 z-50 flex items-center justify-between py-4 bg-transparent" style={{ paddingLeft: 'var(--page-padding)', paddingRight: 'var(--page-padding)' }}>
             {/* Logo */}
             <div className="relative w-auto h-4 md:h-4 flex justify-center items-center z-50">
                 <Image
