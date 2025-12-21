@@ -36,7 +36,7 @@ export default function HeroSection() {
                             className="w-full h-auto object-contain"
                             priority
                         />
-                    </div> 
+                    </div>
                 </div>
 
                 {/* Character Layer - Bottom Aligned to Viewport and Bigger */}
@@ -47,7 +47,7 @@ export default function HeroSection() {
 
             {/* Bottom Bar */}
             <div className="w-full py-8 flex flex-col md:flex-row justify-between items-end relative z-30 mt-auto bg-transparent" style={{ paddingLeft: 'var(--page-padding)', paddingRight: 'var(--page-padding)' }}>
-                
+
                 <div className="text-white/70 font-sans text-[10px] md:text-xs tracking-[0.3em] uppercase mb-4 md:mb-0 hidden md:block">
                     IEEE Industry Applications Society
                 </div>
@@ -55,10 +55,10 @@ export default function HeroSection() {
                 {/* ✅ FIX: Wrap the timer in a container with min-height */}
                 {/* This reserves ~35px on mobile and ~55px on desktop so the layout doesn't collapse */}
                 <div className="min-h-[35px] md:min-h-[55px] flex items-end">
-                    <CountdownTimer 
-                        targetDate="2026-02-01T00:00:00" 
-                        scaleMobile={0.5} 
-                        scaleDesktop={0.8} 
+                    <CountdownTimer
+                        targetDate="2026-02-01T00:00:00"
+                        scaleMobile={0.5}
+                        scaleDesktop={0.8}
                     />
                 </div>
 
@@ -67,13 +67,13 @@ export default function HeroSection() {
             {/* Character Layer - Pushed Down to overlapping hide state */}
             {/* bottom-[-5vh] ensures it sits lower, and section overflow-hidden clips the excess */}
             <div className="absolute bottom-0 md:bottom-[-15vh] z-20 w-full flex justify-center items-end pointer-events-none">
-                <div className="relative w-auto h-screen md:h-[90vh] lg:h-[95vh]">
+                <div className="relative origin-bottom w-auto h-[55vh] sm:h-[65vh] md:h-[90vh] lg:h-[95vh] scale-[1.6] sm:scale-[1.5] md:scale-[1.5] lg:scale-[1.3] xl:scale-[1]">
                     <Image
                         src="/hero-character.png"
                         alt="Novaition Hero Character"
                         width={1200}
                         height={1400}
-                        className="w-auto h-full object-contain object-bottom drop-shadow-2xl"
+                        className="h-full w-auto object-contain object-bottom drop-shadow-2xl"
                         priority
                     />
                 </div>
