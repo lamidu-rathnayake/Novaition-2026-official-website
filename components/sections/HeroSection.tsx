@@ -5,23 +5,22 @@ import CountdownTimer from '../ui/CountdownTimer';
 export default function HeroSection() {
     return (
         <section className="relative w-full min-h-screen bg-black overflow-hidden flex flex-col">
-            {/* Background Image */}
-            <div className="absolute inset-0 z-0 opacity-100 ">
+            {/* Background Image Container */}
+            <div className="absolute inset-0"> {/* Removed z-0 */}
                 <Image
                     src="/hero-background.png"
                     alt="Background"
                     fill
-                    className="object-cover grayscale"
+                    className="object-cover grayscale opacity-100" // Removed grayscale temporarily for debugging
                     priority
                 />
-                <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/20 to-black/90" />
             </div>
 
             {/* Navbar */}
             <Navbar />
 
             {/* Main Content Area */}
-            <div className="flex-grow flex flex-col items-center justify-center relative z-10 w-full h-full pointer-events-none">
+            <div className="grow flex flex-col items-center justify-center relative z-10 w-full h-full pointer-events-none">
 
                 {/* Container for Centered Logo and Bottom-Aligned Character */}
                 <div className="absolute inset-0 flex flex-col items-center justify-center pb-[10vh]">
@@ -37,7 +36,7 @@ export default function HeroSection() {
                             className="w-full h-auto object-contain"
                             priority
                         />
-                    </div>
+                    </div> 
                 </div>
 
                 {/* Character Layer - Bottom Aligned to Viewport and Bigger */}
@@ -48,16 +47,27 @@ export default function HeroSection() {
 
             {/* Bottom Bar */}
             <div className="w-full py-8 flex flex-col md:flex-row justify-between items-end relative z-30 mt-auto bg-transparent" style={{ paddingLeft: 'var(--page-padding)', paddingRight: 'var(--page-padding)' }}>
+                
                 <div className="text-white/70 font-sans text-[10px] md:text-xs tracking-[0.3em] uppercase mb-4 md:mb-0 hidden md:block">
                     IEEE Industry Applications Society
                 </div>
-                <CountdownTimer targetDate="2026-02-01T00:00:00" scaleMobile={0.5} scaleDesktop={0.8} />
+
+                {/* ✅ FIX: Wrap the timer in a container with min-height */}
+                {/* This reserves ~35px on mobile and ~55px on desktop so the layout doesn't collapse */}
+                <div className="min-h-[35px] md:min-h-[55px] flex items-end">
+                    <CountdownTimer 
+                        targetDate="2026-02-01T00:00:00" 
+                        scaleMobile={0.5} 
+                        scaleDesktop={0.8} 
+                    />
+                </div>
+
             </div>
 
             {/* Character Layer - Pushed Down to overlapping hide state */}
             {/* bottom-[-5vh] ensures it sits lower, and section overflow-hidden clips the excess */}
-            <div className="absolute bottom-[0vh] md:bottom-[-15vh] z-20 w-full flex justify-center items-end pointer-events-none">
-                <div className="relative w-auto h-[100vh] md:h-[90vh] lg:h-[95vh]">
+            <div className="absolute bottom-0 md:bottom-[-15vh] z-20 w-full flex justify-center items-end pointer-events-none">
+                <div className="relative w-auto h-screen md:h-[90vh] lg:h-[95vh]">
                     <Image
                         src="/hero-character.png"
                         alt="Novaition Hero Character"
