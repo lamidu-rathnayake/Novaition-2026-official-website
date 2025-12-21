@@ -67,7 +67,7 @@ export default function HeroSection() {
             {/* Character Layer - Pushed Down to overlapping hide state */}
             {/* bottom-[-5vh] ensures it sits lower, and section overflow-hidden clips the excess */}
             <div className="absolute bottom-0 md:bottom-[-15vh] z-20 w-full flex justify-center items-end pointer-events-none">
-                <div className="relative origin-bottom w-auto h-[55vh] sm:h-[65vh] md:h-[90vh] lg:h-[95vh] scale-[1.6] sm:scale-[1.5] md:scale-[1.5] lg:scale-[1.3] xl:scale-[1]">
+                <div className="relative origin-bottom w-auto h-[55vh] sm:h-[65vh] md:h-[90vh] lg:h-[95vh] scale-[1.5] sm:scale-[1.2] md:scale-[1.2] lg:scale-[1] xl:scale-[1]">
                     <Image
                         src="/hero-character.png"
                         alt="Novaition Hero Character"
