@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { useRef } from 'react';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
@@ -41,20 +42,21 @@ export default function Sponsers() {
 
             {/* Marquee Container */}
             <div ref={containerRef} className="w-full relative overflow-hidden mask-gradient-x">
-                {/* 
-                   mask-gradient-x: custom util or generic standard styles for fading edges 
-                   Since we might not have it, I'll stick to basic overflow hidden for now.
-                 */}
                 <div ref={trackRef} className="flex gap-8 w-max">
                     {/* Render Double for continuous loop */}
                     {[...sponsors, ...sponsors].map((sponsor, index) => (
                         <div
                             key={index}
-                            className="w-64 h-32 bg-white/5 border border-white/10 rounded-lg flex items-center justify-center shrink-0 hover:bg-white/10 transition-colors"
+                            className="w-64 h-32 bg-white/5 border border-primary/50 rounded-lg flex items-center justify-center shrink-0 hover:bg-white/10 transition-colors relative p-8"
                         >
-                            <span className="text-3xl font-black italic tracking-widest text-white">
-                                {sponsor.name}
-                            </span>
+                            <div className="relative w-full h-full">
+                                <Image
+                                    src={sponsor.logo}
+                                    alt={sponsor.name}
+                                    fill
+                                    className="object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+                                />
+                            </div>
                         </div>
                     ))}
                 </div>
