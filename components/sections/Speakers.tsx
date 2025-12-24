@@ -11,7 +11,7 @@ const speakers = [
         name: "MALINDA ALAHAKOON",
         title: "SRI LANKAN BORN LECTURER AND SCIENCE COMMUNICATOR",
         description: "KNOWN FOR HIS ROLE AS A LECTURER AT INSTITUTIONS LIKE SWINBURNE UNIVERSITY OF TECHNOLOGY IN MELBOURNE, AUSTRALIA. WITH OVER A DECADE OF ACADEMIC EXPERIENCE, HE HAS ACTIVELY ENGAGED IN MAKING SCIENCE ACCESSIBLE TO A WIDER AUDIENCE.",
-        image: "/hero-character.png", // Using hero char as placeholder for now
+        image: "/malinda.png", // Using hero char as placeholder for now
     },
     {
         id: 2,
@@ -43,17 +43,17 @@ export default function Speakers() {
     const currentSpeaker = speakers[currentIndex];
 
     return (
-        <section className="relative w-full min-h-screen bg-background text-foreground flex flex-col overflow-hidden" style={{ padding: 'var(--page-padding)' }}>
+        <section className="page-container py-4 relative w-full min-h-screen bg-background text-foreground flex flex-col overflow-hidden" >
 
             {/* Title */}
-            <h2 className="text-5xl md:text-5xl font-bold text-center mb-8 tracking-wider">
+            <h2 className="text-5xl md:text-6xl font-bold text-center py-4 tracking-wider">
                 SPEAKERS
             </h2>
 
-            <div className="w-full max-w-7xl mx-auto flex flex-col grow relative">
+            <div className="w-full mx-auto flex flex-col grow relative">
 
                 {/* Progress Bars */}
-                <div className="flex gap-4 mb-8 md:mb-12">
+                <div className="flex gap-4">
                     {speakers.map((_, index) => (
                         <div
                             key={index}
@@ -64,23 +64,25 @@ export default function Speakers() {
                 </div>
 
                 {/* Content Grid */}
-                <div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-16 grow">
+                <div className="flex flex-col md:flex-row md:items-stretch items-center justify-between gap-8 md:gap-12 grow py-8">
 
                     {/* Left: Text Content */}
-                    <div className="w-full md:w-1/2 space-y-6 text-left order-2 md:order-1 flex flex-col items-start">
-                        <h3 className="text-primary text-4xl md:text-5xl lg:text-5xl tracking-widest uppercase leading-none max-w-[12ch]">
-                            {currentSpeaker.name}
-                            {/* IS A {currentSpeaker.title} */}
-                        </h3>
-                        <p className="text-foreground/80 text-sm md:text-base leading-relaxed tracking-wide uppercase font-light text-justify max-w-lg">
-                            {currentSpeaker.description}
-                        </p>
+                    <div className="w-full md:w-1/2 space-y-4 md:space-y-6 order-2 md:order-1 flex flex-col justify-center items-center md:items-start p-3 md:p-4">
+                        <div className="relative w-full md:w-4/5 flex flex-col justify-center items-center md:items-start gap-3">
+                            <h3 className="text-primary text-2xl md:text-4xl lg:text-5xl tracking-widest uppercase leading-tight md:leading-none max-w-full md:max-w-[12ch] text-center md:text-left">
+                                {currentSpeaker.name}
+                                {/* IS A {currentSpeaker.title} */}
+                            </h3>
+                            <p className="text-foreground/80 text-xs md:text-sm lg:text-base leading-relaxed tracking-wide uppercase font-light text-center md:text-left max-w-lg">
+                                {currentSpeaker.description}
+                            </p>
+                        </div>
                     </div>
 
                     {/* Right: Image */}
-                    <div className="w-full md:w-1/2 h-[55vh] md:h-[70vh] relative order-1 md:order-2 flex justify-center items-end">
+                    <div className="w-full md:w-1/2 relative order-1 md:order-2">
                         {/* Image Container */}
-                        <div className="relative w-full h-full">
+                        <div className="relative w-full h-[50vh] md:h-full">
                             <Image
                                 src={currentSpeaker.image}
                                 alt={currentSpeaker.name}

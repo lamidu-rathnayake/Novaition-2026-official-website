@@ -4,6 +4,7 @@ import CountdownTimer from '../ui/CountdownTimer';
 
 export default function HeroSection() {
     return (
+        // we can not put .page-container on section because it will affect the absolute children like background image
         <section className="relative w-full min-h-screen bg-black overflow-hidden flex flex-col">
             {/* Background Image Container */}
             <div className="absolute inset-0"> {/* Removed z-0 */}
@@ -46,7 +47,9 @@ export default function HeroSection() {
             </div>
 
             {/* Bottom Bar */}
-            <div className="w-full py-8 flex flex-col md:flex-row justify-between items-end relative z-30 mt-auto bg-transparent" style={{ paddingLeft: 'var(--page-padding)', paddingRight: 'var(--page-padding)' }}>
+            // Using page-container to apply horizontal padding from globals.css
+            // py-4 for vertical padding
+            <div className="page-container w-full py-4 flex flex-col md:flex-row justify-between items-end relative z-30 mt-auto bg-transparent" >
 
                 <div className="text-white/70 font-sans text-[10px] md:text-xs tracking-[0.3em] uppercase mb-4 md:mb-0 hidden md:block">
                     IEEE Industry Applications Society

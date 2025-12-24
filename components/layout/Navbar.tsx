@@ -19,7 +19,9 @@ export default function Navbar() {
     ];
 
     return (
-        <nav className="absolute top-0 left-0 right-0 z-50 flex items-center justify-between py-4 bg-transparent" style={{ paddingLeft: 'var(--page-padding)', paddingRight: 'var(--page-padding)' }}>
+        // i use page container here to apply the padding from globals.css
+        // py-4 for vertical padding
+        <nav className="page-container absolute top-0 left-0 right-0 z-50 flex items-center justify-between py-4 bg-transparent">
             {/* Logo */}
             <div className="relative w-auto h-4 md:h-4 flex justify-center items-center z-50">
                 <Image
