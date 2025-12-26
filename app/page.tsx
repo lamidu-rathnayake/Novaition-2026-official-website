@@ -1,4 +1,5 @@
 import HeroSection from '@/components/sections/HeroSection';
+import AboutSection from '@/components/sections/AboutSection';
 import Speakers from '@/components/sections/Speakers';
 import Contact from '@/components/sections/Contact';
 import University from '@/components/sections/University';
@@ -8,6 +9,7 @@ export default function Home() {
   return (
     <main>
       <HeroSection />
+      <AboutSection />
       <Speakers />
       <University />
       <Sponsers />
