@@ -16,16 +16,16 @@ export default function AboutSection() {
             {/* First Row: Switches from 1 column (mobile) to 2 columns (lg:grid-cols-2) */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-10 xl:gap-12 mb-8 md:mb-10 lg:mb-12 xl:mb-16">
 
-                {/* Left Column: Tagline. Centered on mobile, LEFT on large screens (lg:text-left). */}
-                <div className="flex flex-col justify-start">
-                    <h2 className="font-display-tech text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-black uppercase leading-tight text-primary tracking-tight text-center lg:text-left">
-                        WHERE INNOVATION MEETS INDUSTRY.
+                {/* Left Column: Tagline. Always centered. */}
+                <div className="flex flex-col justify-start items-center">
+                    <h2 className="font-display-tech text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-black uppercase leading-tight text-primary tracking-tight text-center">
+                        WHERE INNOVATION MEETS <br />INDUSTRY.
                     </h2>
                 </div>
 
-                {/* Right Column: Description. Centered on mobile, RIGHT on large screens (lg:text-right). */}
-                <div className="flex flex-col justify-start lg:justify-center">
-                    <p className="font-sans text-[10px] sm:text-xs md:text-sm font-bold uppercase tracking-widest leading-relaxed text-white text-center lg:text-right">
+                {/* Right Column: Description. Always centered. */}
+                <div className="flex flex-col justify-start items-center">
+                    <p className="font-sans text-[10px] sm:text-xs md:text-sm font-bold uppercase tracking-widest leading-relaxed text-white text-center">
                         AN OPEN INITIATIVE BY THE SLTC IEEE IAS STUDENT BRANCH,<br />
                         "SRI LANKA'S PREMIER STUDENT FORUM ON<br />
                         ARTIFICIAL INTELLIGENCE AND MODERN BUSINESS TRENDS.
@@ -36,20 +36,19 @@ export default function AboutSection() {
             {/* Second Row: Switches from 1 column (mobile) to 2 columns (lg:grid-cols-2) */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-10 xl:gap-12">
 
-                {/* Left Column: Description. Centered on mobile, LEFT on large screens (lg:text-left). */}
-                <div className="flex flex-col justify-start lg:justify-center">
-                    <p className="font-sans text-[10px] sm:text-xs md:text-sm font-bold uppercase tracking-widest leading-relaxed text-white text-center lg:text-left">
+                {/* Left Column: Description. Always centered. */}
+                <div className="flex flex-col justify-start items-center">
+                    <p className="font-sans text-[10px] sm:text-xs md:text-sm font-bold uppercase tracking-widest leading-relaxed text-white text-center">
                         AN OPEN INITIATIVE BY THE SLTC IEEE IAS STUDENT BRANCH,<br />
                         "SRI LANKA'S PREMIER STUDENT FORUM ON<br />
                         ARTIFICIAL INTELLIGENCE AND MODERN BUSINESS TRENDS.
                     </p>
                 </div>
 
-                {/* Right Column: Future Statement. Centered on mobile, RIGHT on large screens (lg:text-right). */}
-                <div className="flex flex-col justify-start lg:justify-end lg:items-end">
-                    {/* Note: The h2 already had lg:text-right, but now also has text-center */}
-                    <h2 className="font-display-tech text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-black uppercase leading-tight text-primary text-center lg:text-right tracking-tight">
-                        DEFINING THE FUTURE OF AI & BUSINESS.
+                {/* Right Column: Future Statement. Always centered. */}
+                <div className="flex flex-col justify-start items-center">
+                    <h2 className="font-display-tech text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-black uppercase leading-tight text-primary text-center tracking-tight">
+                        DEFINING THE FUTURE OF AI <br />& BUSINESS.
                     </h2>
                 </div>
             </div>
