@@ -14,7 +14,7 @@ export default function Contact() {
                 {/* Left Column: Hotlines */}
                 <div className="w-full md:w-1/2 flex flex-col items-center md:items-start gap-2 md:pl-0 text-center md:text-left">
                     <h3 className="text-3xl md:text-5xl font-bold uppercase text-white mb-2">
-                        OUR HOTLINES:
+                        OUR HOTLINES
                     </h3>
                     <p className="text-xl md:text-2xl font-bold text-primary tracking-wide">011 2365 455</p>
                     <p className="text-xl md:text-2xl font-bold text-primary tracking-wide">011 2365 455</p>
@@ -31,7 +31,7 @@ export default function Contact() {
                     {/* Email */}
                     <div className="flex flex-col items-center md:items-end gap-2">
                         <h3 className="text-3xl md:text-5xl font-bold uppercase text-white mb-2">
-                            OUR EMAIL:
+                            OUR EMAIL
                         </h3>
                         <p className="text-lg md:text-2xl font-bold text-primary tracking-wide uppercase">
                             NOVAITION2026@GMAIL.COM
@@ -41,7 +41,7 @@ export default function Contact() {
                     {/* Location */}
                     <div className="flex flex-col items-center md:items-end gap-2">
                         <h3 className="text-3xl md:text-5xl font-bold uppercase text-white mb-2">
-                            LOCATION:
+                            LOCATION
                         </h3>
                         <p className="text-lg md:text-2xl font-bold text-primary tracking-wide uppercase max-w-md">
                             SRI LANKA TECHNOLOGY CAMPUS, PADUKKA
