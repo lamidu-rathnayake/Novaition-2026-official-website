@@ -5,22 +5,20 @@
    ▲ Next.js 16.0.10 (Turbopack)
 
    Creating an optimized production build ...
+ ✓ Compiled successfully in 1858.1ms
+   Running TypeScript ...
+   Collecting page data using 11 workers ...
+Error: Missing API key. Pass it to the constructor `new Resend("re_123")`
+    at new <anonymous> (.next/server/chunks/[root-of-the-server]__15fb1251._.js:2:128706)
+    at module evaluation (.next/server/chunks/[root-of-the-server]__15fb1251._.js:2:128247)
+    at instantiateModule (.next/server/chunks/[turbopack]_runtime.js:715:9)
+    at instantiateRuntimeModule (.next/server/chunks/[turbopack]_runtime.js:743:12)
+    at getOrInstantiateRuntimeModule (.next/server/chunks/[turbopack]_runtime.js:756:12)
+    at Object.m (.next/server/chunks/[turbopack]_runtime.js:765:18)
+    at Object.<anonymous> (.next/server/app/api/register/route.js:7:3)
 
 > Build error occurred
-Error: Turbopack build failed with 1 errors:
-./app/api/upload/route.ts:2:1
-Module not found: Can't resolve 'cloudinary'
-[0m [90m 1 |[39m [36mimport[39m { [33mNextResponse[39m } [36mfrom[39m [32m'next/server'[39m[33m;[39m
-[31m[1m>[22m[39m[90m 2 |[39m [36mimport[39m { v2 [36mas[39m cloudinary } [36mfrom[39m [32m'cloudinary'[39m[33m;[39m
- [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 3 |[39m
- [90m 4 |[39m [90m// Configuration[39m
- [90m 5 |[39m cloudinary[33m.[39mconfig({[0m
-
-
-
-https://nextjs.org/docs/messages/module-not-found
-
-
-    at <unknown> (./app/api/upload/route.ts:2:1)
-    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+Error: Failed to collect page data for /api/register
+    at ignore-listed frames {
+  type: 'Error'
+}

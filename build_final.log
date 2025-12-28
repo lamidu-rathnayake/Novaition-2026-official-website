@@ -1,0 +1,32 @@
+
+> novaition-2026-official-website@0.1.0 build
+> next build
+
+   ▲ Next.js 16.0.10 (Turbopack)
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully in 1973.1ms
+   Running TypeScript ...
+   Collecting page data using 11 workers ...
+   Generating static pages using 11 workers (0/10) ...
+   Generating static pages using 11 workers (2/10) 
+   Generating static pages using 11 workers (4/10) 
+   Generating static pages using 11 workers (7/10) 
+ ✓ Generating static pages using 11 workers (10/10) in 574.4ms
+   Finalizing page optimization ...
+
+Route (app)
+┌ ○ /
+├ ○ /_not-found
+├ ƒ /api/check-email1
+├ ƒ /api/check-email2
+├ ƒ /api/check-id1
+├ ƒ /api/check-id2
+├ ƒ /api/register
+├ ƒ /api/submit-order
+└ ƒ /api/upload
+
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+

@@ -3,11 +3,12 @@ import { db } from '@/lib/firebase';
 import { collection, addDoc, query, where, getDocs } from 'firebase/firestore';
 import { Resend } from 'resend';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Initialize Resend inside the handler to avoid build-time errors if API key is missing
 
 export async function POST(request: Request) {
     try {
         const body = await request.json();
+        const resend = new Resend(process.env.RESEND_API_KEY);
         const { name, email, phone, university, nic, attend } = body;
 
         // Basic Validation
