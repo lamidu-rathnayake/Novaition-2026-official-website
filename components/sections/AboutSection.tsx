@@ -10,26 +10,30 @@ export default function AboutSection() {
 
             {/* Main Title: Always centered (text-center). */}
             <div className="w-full py-4 mb-10 md:mb-12 lg:mb-16 xl:mb-20">
-                <h1 className="font-display-tech text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black uppercase tracking-tight text-center leading-none">
+                
+                <h1 className="text-5xl md:text-6xl font-bold text-center py-4 tracking-wider">
                     ABOUT NOV<span className="text-primary">AI</span>TTION 2026
                 </h1>
             </div>
 
             <div className="content w-full flex-2 flex flex-col justify-around items-center">
                 {/* First Row: Switches from 1 column (mobile) to 2 columns (lg:grid-cols-2) */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-10 xl:gap-12 mb-8 md:mb-10 lg:mb-12 xl:mb-16">
+                <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-10 xl:gap-12 mb-8 md:mb-10 lg:mb-12 xl:mb-16">
 
                     {/* Left Column: Tagline. Always centered. */}
                     <div className="flex flex-col justify-start">
                         {/* make the tagline full width */}
-                        <h2 className="w-full h-fit font-display-tech text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-black uppercase leading-tight text-primary tracking-tight text-left">
+                        <h2 className="w-full h-fit text-3xl md:text-5xl font-bold uppercase mb-2 leading-tight text-primary tracking-wider text-left">
                             WHERE INNOVATION MEETS <br />INDUSTRY.
                         </h2>
                     </div>
 
                     {/* Right Column: Description. Always centered. */}
                     <div className="flex flex-row justify-start"> 
-                        <p className="w-3/4 font-sans text-[10px] sm:text-xs md:text-sm font-bold uppercase tracking-widest leading-relaxed text-white text-left">
+                        <p className="w-2/3 font-sans text-[10px] sm:text-xs md:text-sm font-bold uppercase tracking-widest leading-relaxed text-white text-left">
+                            AN OPEN INITIATIVE BY THE SLTC IEEE IAS STUDENT BRANCH,<br />
+                            "SRI LANKA'S PREMIER STUDENT FORUM ON<br />
+                            ARTIFICIAL INTELLIGENCE AND MODERN BUSINESS TRENDS.
                             AN OPEN INITIATIVE BY THE SLTC IEEE IAS STUDENT BRANCH,<br />
                             "SRI LANKA'S PREMIER STUDENT FORUM ON<br />
                             ARTIFICIAL INTELLIGENCE AND MODERN BUSINESS TRENDS.
@@ -38,11 +42,14 @@ export default function AboutSection() {
                 </div>
 
                 {/* Second Row: Switches from 1 column (mobile) to 2 columns (lg:grid-cols-2) */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-10 xl:gap-12">
+                <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-10 xl:gap-12">
 
                     {/* Left Column: Description. Always centered. */}
                     <div className="flex flex-row justify-end">
-                        <p className="w-3/4 font-sans text-[10px] sm:text-xs md:text-sm font-bold uppercase tracking-widest leading-relaxed text-white text-right">
+                        <p className="w-2/3 font-sans text-[10px] sm:text-xs md:text-sm font-bold uppercase tracking-widest leading-relaxed text-white text-right">
+                            AN OPEN INITIATIVE BY THE SLTC IEEE IAS STUDENT BRANCH,<br />
+                            "SRI LANKA'S PREMIER STUDENT FORUM ON<br />
+                            ARTIFICIAL INTELLIGENCE AND MODERN BUSINESS TRENDS.
                             AN OPEN INITIATIVE BY THE SLTC IEEE IAS STUDENT BRANCH,<br />
                             "SRI LANKA'S PREMIER STUDENT FORUM ON<br />
                             ARTIFICIAL INTELLIGENCE AND MODERN BUSINESS TRENDS.
@@ -51,7 +58,7 @@ export default function AboutSection() {
 
                     {/* Right Column: Future Statement. Always centered. */}
                     <div className="flex flex-col justify-end">
-                        <h2 className="w-full h-fit font-display-tech text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-black uppercase leading-tight text-primary text-right tracking-tight">
+                        <h2 className="w-full h-fit text-3xl md:text-5xl font-bold uppercase mb-2 leading-tight text-primary tracking-wider text-right">
                             DEFINING THE FUTURE OF AI <br />& BUSINESS.
                         </h2>
                     </div>
