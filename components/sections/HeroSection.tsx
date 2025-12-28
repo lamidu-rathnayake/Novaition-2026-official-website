@@ -57,7 +57,7 @@ export default function HeroSection() {
 
                 {/* ✅ FIX: Wrap the timer in a container with min-height */}
                 {/* This reserves ~35px on mobile and ~55px on desktop so the layout doesn't collapse */}
-                <div className="min-h-[35px] md:min-h-[55px] flex items-end">
+                <div className="min-h-8.75 md:min-h-13.75 flex items-end">
                     <CountdownTimer
                         targetDate="2026-02-01T00:00:00"
                         scaleMobile={0.5}
