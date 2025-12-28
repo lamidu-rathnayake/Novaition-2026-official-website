@@ -68,13 +68,13 @@
 
 /* all pages and sections must be start with <section class="page-container"> */
 @layer components {
-  .page-container,.wrapper {
+  .page-container {
     padding-left: var(--page-padding);
     padding-right: var(--page-padding);
   }
 
   @media (min-width: 768px) {
-    .page-container,.wrapper {
+    .page-container {
       padding-left: var(--page-padding-md);
       padding-right: var(--page-padding-md);
     }
