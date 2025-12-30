@@ -47,7 +47,7 @@ export default function Sponsers() {
                     {[...sponsors, ...sponsors].map((sponsor, index) => (
                         <div
                             key={index}
-                            className="w-64 h-32 bg-white/5 border border-primary/50 rounded-lg flex items-center justify-center shrink-0 hover:bg-white/10 transition-colors relative p-8"
+                            className="w-64 h-32 bg-white/3 rounded-lg flex items-center justify-center shrink-0 hover:bg-white/10 transition-colors relative p-8"
                         >
                             <div className="relative w-full h-full">
                                 <Image

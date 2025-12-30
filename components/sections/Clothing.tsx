@@ -4,9 +4,8 @@ import React, { Suspense, useRef, useLayoutEffect } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { Environment, OrbitControls, SpotLight, Center } from '@react-three/drei';
 import Image from 'next/image';
+import Link from 'next/link';
 import gsap from 'gsap';
-// @ts-ignore
-import * as THREE from 'three';
 
 function TShirtModel() {
     return (
@@ -61,14 +60,14 @@ export default function Clothing() {
                     className="object-cover opacity-80"
                     priority
                 />
-                <div className="absolute inset-0 bg-gradient-to-b from-black/100 via-transparent to-black/60 pointer-events-none"></div>
+                <div className="absolute inset-0 bg-linear-to-b from-black via-transparent to-black/60 pointer-events-none"></div>
             </div>
 
             {/* Top Navigation / Header text */}
-            <div className="relative z-10 w-full flex justify-between items-start font-display tracking-widest text-sm md:text-base uppercase pt-4">
-                <div className="font-bold">NOVAITION</div>
-                <div className="text-primary font-bold animate-pulse">MAKE IT YOURS</div>
-                <div className="font-bold">2026</div>
+            <div className="relative z-10 w-full flex items-center font-display tracking-widest text-sm md:text-base uppercase pt-4">
+                <div className="flex-1 font-bold">NOVAITION CLOTHING</div>
+                <div className="flex-1 text-primary font-bold animate-pulse text-center">MAKE IT YOURS</div>
+                <div className="flex-1 font-bold text-right">2026</div>
             </div>
 
             {/* 3D Model Canvas Area - Centered but shifted up */}
@@ -99,9 +98,11 @@ export default function Clothing() {
                 </h2>
 
                 {/* CTA BUTTON */}
-                <button className="pointer-events-auto bg-primary text-black px-8 py-3 md:px-10 md:py-4 text-lg md:text-xl font-bold uppercase tracking-wider hover:bg-white transition-colors duration-300 shadow-[0_0_20px_rgba(191,237,7,0.4)]">
-                    CLICK TO PRE ORDER
-                </button>
+                <Link href="/pre-order" className="pointer-events-auto">
+                    <button className="bg-primary text-black px-8 py-3 md:px-10 md:py-4 text-lg md:text-xl font-bold uppercase tracking-wider hover:bg-white transition-colors duration-300 shadow-[0_0_20px_rgba(191,237,7,0.4)]">
+                        CLICK TO PRE ORDER
+                    </button>
+                </Link>
             </div>
 
             {/* Bottom Info Row */}
