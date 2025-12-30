@@ -6,6 +6,7 @@ export default function OrderForm() {
     const [formData, setFormData] = useState({
         name: '',
         phoneNumber: '',
+        address:'',
         email: '',
         id: '',
         clothType: '',
@@ -167,7 +168,7 @@ export default function OrderForm() {
                 // Show immediate local time to the user; server stores authoritative createdAt
                 const localTime = new Date().toLocaleString();
                 setMessage(`Order placed successfully at ${localTime}`);
-                setFormData({ name: '', phoneNumber: '', email: '', id: '', clothType: '', amount: '', paymentStatus: 'Pending' });
+                setFormData({ name: '', phoneNumber: '',address:'' ,email: '', id: '', clothType: '', amount: '', paymentStatus: 'Pending' });
                 setImage(null);
             } else {
                 setMessage('Failed: ' + result.error);
@@ -215,6 +216,12 @@ export default function OrderForm() {
                     {isEmailTaken && !checkingEmail && (
                         <p className="text-sm text-red-400 mt-1">This email is already associated with an order.</p>
                     )}
+                </div>
+
+              <div>
+                    <label className="block text-sm font-medium text-gray-800">Address</label>
+                    <input type="text" name="address" value={formData.address} onChange={handleInputChange} required
+                        className="mt-1 block w-full rounded-xl border-white/20 bg-white/5 text-black placeholder-gray-400 shadow-sm p-2 border focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" />
                 </div>
 
                 <div>
