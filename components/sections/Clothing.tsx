@@ -72,7 +72,7 @@ export default function Clothing() {
 
             {/* 3D Model Canvas Area - Centered but shifted up */}
             <div className="absolute inset-0 z-5 pointer-events-none flex items-start justify-center pt-20 md:pt-10">
-                <div className="w-full h-full md:w-3/4 md:h-3/4 pointer-events-auto">
+                <div className="w-[90%] h-[50vh] md:w-3/4 md:h-3/4 pointer-events-auto">
                     <Canvas shadows camera={{ position: [0, 0, 6], fov: 40 }}>
                         <ambientLight intensity={0.5} />
                         <SpotLight position={[0, 10, 0]} angle={0.4} penumbra={0.5} intensity={800} castShadow />
