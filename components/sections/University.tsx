@@ -22,9 +22,9 @@ export default function University() {
 
                 {/* Title */}
                 <h2 className="text-5xl md:text-7xl font-bold uppercase leading-tight tracking-wider">
-                    <span className="text-primary">SLTC</span> <span className="text-white">RESEARCH</span>
+                    <span className="text-primary">SRI LANKA</span> <span className="text-white">TECHNOLOGY</span>
                     <br />
-                    <span className="text-white">UNIVERSITY</span>
+                    <span className="text-white">CAMPUS</span>
                 </h2>
 
                 {/* Description */}

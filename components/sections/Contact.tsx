@@ -2,7 +2,7 @@
 
 export default function Contact() {
     return (
-        <section className="page-container py-4 w-full bg-muted text-foreground flex flex-col items-center justify-start h-auto md:h-screen">
+        <section className="page-container py-4 w-full bg-background text-foreground flex flex-col items-center justify-start h-auto md:h-screen">
 
             {/* Title */}
             <h2 className="flex-1 text-5xl md:text-6xl font-bold text-center py-12 tracking-wider text-white uppercase">
