@@ -60,97 +60,113 @@ const Teams = () => {
             // Animate the main header
             gsap.from(".teams-header", {
                 opacity: 0,
-                y: -50,
+                y: -30,
                 duration: 1,
+                ease: "power3.out",
                 scrollTrigger: {
                     trigger: containerRef.current,
                     start: "top 80%",
                 },
             });
 
-            // Animate each team section
-            teamRefs.current.forEach((team, index) => {
+            // Animate each team section and its members
+            teamRefs.current.forEach((team) => {
                 if (!team) return;
 
-                gsap.from(team, {
-                    opacity: 0,
-                    y: 50,
-                    duration: 1,
-                    delay: index * 0.2, // Stagger effect between teams
+                const members = team.querySelectorAll(".member-card");
+                const title = team.querySelector(".team-title");
+
+                const tl = gsap.timeline({
                     scrollTrigger: {
                         trigger: team,
-                        start: "top 85%",
-                        toggleActions: "play none none reverse",
+                        start: "top 85%", // Slightly adjusted for better feel
+                        end: "bottom 20%",
+                        toggleActions: "play none none none", // Ensure it plays and stays visible
                     },
                 });
+
+                // Title animation
+                tl.from(title, {
+                    opacity: 0,
+                    x: -50,
+                    duration: 0.8,
+                    ease: "power3.out",
+                });
+
+                // Staggered members animation
+                tl.from(members, {
+                    opacity: 0,
+                    y: 30,
+                    scale: 0.9,
+                    duration: 0.6,
+                    stagger: 0.1, // Smooth stagger effect
+                    ease: "back.out(1.7)",
+                }, "-=0.4"); // Overlap slightly with title animation
             });
         },
         { scope: containerRef }
     );
 
     return (
-        <section ref={containerRef} className="min-h-screen bg-black py-20 px-4 md:px-10 overflow-hidden relative">
+        <section ref={containerRef} className="page-container py-20 min-h-screen bg-black text-white relative overflow-hidden">
+
             {/* Main Header */}
-            <h2 className="teams-header text-5xl md:text-7xl font-bold text-white text-center mb-16 tracking-tighter">
+            <h2 className="teams-header text-5xl md:text-6xl font-bold text-center mb-24 tracking-wider uppercase">
                 OUR TEAMS
             </h2>
 
-            <div className="max-w-7xl mx-auto space-y-24">
+            <div className="space-y-32">
                 {teams.map((team, teamIndex) => (
                     <div
                         key={team.name}
                         ref={(el) => { if (el) teamRefs.current[teamIndex] = el; }}
-                        className="team-section"
+                        className="team-section relative"
                     >
-                        {/* Team Name - Neon Green */}
-                        <h3 className="text-3xl md:text-5xl font-bold text-[#ccff00] uppercase mb-10 text-center md:text-left tracking-wide">
+                        {/* Team Name - Styled with Neon Green */}
+                        <h3 className="team-title text-3xl md:text-5xl font-bold text-[#ccff00] uppercase mb-12 tracking-wide border-l-4 border-[#ccff00] pl-6">
                             {team.name}
                         </h3>
 
-                        {/* Members Grid */}
-                        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-10">
+                        {/* Members Grid - Centered and Smaller Cards */}
+                        <div className="flex flex-wrap justify-center gap-6 md:gap-8 px-4">
                             {team.members.map((member, i) => (
-                                <div key={i} className="group flex flex-col items-center">
-                                    {/* Member Image Placeholder */}
-                                    <div className="w-full aspect-square bg-neutral-900 rounded-lg overflow-hidden border border-neutral-800 group-hover:border-[#ccff00] transition-colors duration-300 relative">
-                                        {/* Replace src with actual member images later */}
-                                        <div className="absolute inset-0 flex items-center justify-center text-neutral-700">
-                                            <span className="text-4xl">?</span>
+                                <div key={i} className="member-card group flex flex-col items-center w-36 md:w-48">
+
+                                    {/* Member Image Container */}
+                                    <div className="w-full aspect-4/5 relative rounded-xl overflow-hidden bg-neutral-900 border border-neutral-800 group-hover:border-[#ccff00]/50 transition-all duration-500 shadow-lg group-hover:shadow-[0_0_20px_rgba(204,255,0,0.15)]">
+
+                                        {/* Placeholder Icon */}
+                                        <div className="absolute inset-0 flex items-center justify-center text-neutral-800 transition-opacity duration-300 group-hover:opacity-0">
+                                            <span className="text-4xl md:text-5xl font-thin opacity-20">?</span>
                                         </div>
+
+                                        {/* Image (Uncomment when ready) */}
                                         {/* <Image
                       src={member.image}
                       alt={member.name}
                       fill
-                      className="object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-300"
-                     /> */}
+                      className="object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0"
+                    /> */}
+
+                                        {/* Overlay Gradient on Hover */}
+                                        <div className="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                                     </div>
 
                                     {/* Member Details */}
-                                    <div className="mt-4 text-center">
-                                        <h4 className="text-white text-lg md:text-xl font-semibold uppercase tracking-wider group-hover:text-[#ccff00] transition-colors duration-300">
+                                    <div className="mt-4 text-center w-full">
+                                        <h4 className="text-white text-sm md:text-base font-bold uppercase tracking-wider group-hover:text-[#ccff00] transition-colors duration-300 truncate">
                                             {member.name}
                                         </h4>
-                                        <p className="text-neutral-500 text-sm md:text-base font-light">
+                                        {/* Role - Always visible and distinct */}
+                                        <p className="text-[#ccff00]/80 text-xs font-medium tracking-wide mt-1 uppercase">
                                             {member.role}
                                         </p>
                                     </div>
                                 </div>
                             ))}
                         </div>
-
-                        {/* Divider lines for aesthetics (optional based on "frame" request) */}
-                        <div className="w-full h-px bg-neutral-900 mt-16" />
                     </div>
                 ))}
-            </div>
-
-            {/* Bottom decoration */}
-            <div className="flex justify-center mt-20">
-                <div className="flex gap-2">
-                    <div className="w-2 h-2 rounded-full bg-[#ccff00]"></div>
-                    <div className="w-2 h-2 rounded-full bg-[#ccff00]"></div>
-                    <div className="w-2 h-2 rounded-full bg-[#ccff00]"></div>
-                </div>
             </div>
 
         </section>
