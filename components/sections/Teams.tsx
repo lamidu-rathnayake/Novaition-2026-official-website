@@ -1,12 +1,8 @@
 "use client";
 
 import React, { useRef } from "react";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Image from "next/image";
-
-gsap.registerPlugin(ScrollTrigger);
+// import Image from "next/image";
+import { useSectionAnimations } from "@/hooks/useSectionAnimations";
 
 interface Member {
     name: string;
@@ -53,82 +49,35 @@ const teams: Team[] = [
 
 const Teams = () => {
     const containerRef = useRef<HTMLDivElement>(null);
-    const teamRefs = useRef<(HTMLDivElement | null)[]>([]);
-
-    useGSAP(
-        () => {
-            // Animate the main header
-            gsap.from(".teams-header", {
-                opacity: 0,
-                y: -30,
-                duration: 1,
-                ease: "power3.out",
-                scrollTrigger: {
-                    trigger: containerRef.current,
-                    start: "top 80%",
-                },
-            });
-
-            // Animate each team section and its members
-            teamRefs.current.forEach((team) => {
-                if (!team) return;
-
-                const members = team.querySelectorAll(".member-card");
-                const title = team.querySelector(".team-title");
-
-                const tl = gsap.timeline({
-                    scrollTrigger: {
-                        trigger: team,
-                        start: "top 85%", // Slightly adjusted for better feel
-                        end: "bottom 20%",
-                        toggleActions: "play none none none", // Ensure it plays and stays visible
-                    },
-                });
-
-                // Title animation
-                tl.from(title, {
-                    opacity: 0,
-                    x: -50,
-                    duration: 0.8,
-                    ease: "power3.out",
-                });
-
-                // Staggered members animation
-                tl.from(members, {
-                    opacity: 0,
-                    y: 30,
-                    scale: 0.9,
-                    duration: 0.6,
-                    stagger: 0.1, // Smooth stagger effect
-                    ease: "back.out(1.7)",
-                }, "-=0.4"); // Overlap slightly with title animation
-            });
-        },
-        { scope: containerRef }
-    );
+    useSectionAnimations(containerRef);
 
     return (
-        <section ref={containerRef} className="page-container py-20 min-h-screen bg-black text-white relative overflow-hidden">
+        <section id="teams" ref={containerRef} className="page-container py-20 min-h-screen bg-black text-white relative overflow-hidden">
 
             {/* Main Header */}
-            <h2 className="teams-header text-5xl md:text-6xl font-bold text-center mb-24 tracking-wider uppercase">
-                OUR TEAMS
-            </h2>
+            <div className="w-full mb-24 flex justify-center">
+                <div className="overflow-hidden">
+                    <h2 className="animate-title text-5xl md:text-7xl font-bold text-center tracking-wider uppercase transform translate-y-full opacity-0">
+                        OUR TEAMS
+                    </h2>
+                </div>
+            </div>
 
             <div className="space-y-32">
-                {teams.map((team, teamIndex) => (
+                {teams.map((team) => (
                     <div
                         key={team.name}
-                        ref={(el) => { if (el) teamRefs.current[teamIndex] = el; }}
                         className="team-section relative"
                     >
                         {/* Team Name - Styled with Neon Green */}
-                        <h3 className="team-title text-3xl md:text-5xl font-bold text-[#ccff00] uppercase mb-12 tracking-wide border-l-4 border-[#ccff00] pl-6">
-                            {team.name}
-                        </h3>
+                        <div className="overflow-hidden mb-12">
+                            <h3 className="animate-title text-3xl md:text-5xl font-bold text-[#ccff00] uppercase tracking-wide border-l-4 border-[#ccff00] pl-6 transform translate-y-full opacity-0">
+                                {team.name}
+                            </h3>
+                        </div>
 
                         {/* Members Grid - Centered and Smaller Cards */}
-                        <div className="flex flex-wrap justify-center gap-6 md:gap-8 px-4">
+                        <div className="animate-grid flex flex-wrap justify-center gap-6 md:gap-8 px-4">
                             {team.members.map((member, i) => (
                                 <div key={i} className="member-card group flex flex-col items-center w-36 md:w-48">
 

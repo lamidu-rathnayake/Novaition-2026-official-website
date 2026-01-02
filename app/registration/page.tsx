@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 
 import QRCode from 'qrcode';
-import { pdf, Document, Page, Text, View, Image, StyleSheet, Font } from '@react-pdf/renderer';
+import { pdf, Document, Page, Text, View, Image, StyleSheet } from '@react-pdf/renderer';
 
 // Register a nice font if needed, otherwise use Helvetica/standard
 // Font.register({ family: 'Roboto', src: 'https://cdnjs.cloudflare.com/ajax/libs/ink/3.1.10/fonts/Roboto/roboto-light-webfont.ttf' });
@@ -107,6 +107,7 @@ const TicketPDF = ({ userData, userId, qrDataUrl }: { userData: UserData, userId
                 </View>
 
                 <View style={styles.qrContainer}>
+                    {/* eslint-disable-next-line jsx-a11y/alt-text */}
                     <Image src={qrDataUrl} style={styles.qrCode} />
                     <Text style={{ ...styles.subtitle, fontFamily: 'Courier' }}>ID: {userId}</Text>
                 </View>
@@ -141,6 +142,14 @@ type ChatbotProps = {
 
 
 
+const questions = [
+    "Hey there! What's your name?",
+    "Nice to meet you! What's the best email address for us to reach you at?",
+    "Enter your Whatapp Number",
+    "What is your university?",
+    "Tell me your NIC too"
+];
+
 export default function Chatbot({ onClose }: ChatbotProps) {
     const [messages, setMessages] = useState<Message[]>([]);
     const [inputValue, setInputValue] = useState('');
@@ -150,14 +159,6 @@ export default function Chatbot({ onClose }: ChatbotProps) {
     const [userId, setUserId] = useState<string | null>(null);
     const messagesEndRef = useRef<HTMLDivElement>(null);
     const router = useRouter();
-
-    const questions = [
-        "Hey there! What's your name?",
-        "Nice to meet you! What's the best email address for us to reach you at?",
-        "Enter your Whatapp Number",
-        "What is your university?",
-        "Tell me your NIC too"
-    ];
 
     const scrollToBottom = () => {
         messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });

@@ -1,10 +1,15 @@
 'use client';
 
 import Image from 'next/image';
+import { useRef } from 'react';
+import { useSectionAnimations } from '@/hooks/useSectionAnimations';
 
 export default function University() {
+    const containerRef = useRef<HTMLElement>(null);
+    useSectionAnimations(containerRef);
+
     return (
-        <section className="page-container relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden">
+        <section id="campus" ref={containerRef} className="page-container relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden">
 
             {/* Background Image */}
             <div className="absolute inset-0 z-0">
@@ -21,21 +26,23 @@ export default function University() {
             <div className="relative z-10 flex flex-col items-center justify-center text-center max-w-4xl mx-auto space-y-6 p-4">
 
                 {/* Title */}
-                <h2 className="text-5xl md:text-7xl font-bold uppercase leading-tight tracking-wider">
-                    <span className="text-primary">SRI LANKA</span> <span className="text-white">TECHNOLOGY</span>
-                    <br />
-                    <span className="text-white">CAMPUS</span>
-                </h2>
+                <div className="overflow-hidden">
+                    <h2 className="animate-title text-5xl md:text-7xl font-bold uppercase leading-tight tracking-wider transform translate-y-full opacity-0">
+                        <span className="text-[#ccff00]">SRI LANKA</span> <span className="text-white">TECHNOLOGY</span>
+                        <br />
+                        <span className="text-white">CAMPUS</span>
+                    </h2>
+                </div>
 
                 {/* Description */}
-                <p className="text-primary text-sm md:text-base font-bold uppercase tracking-widest max-w-3xl leading-relaxed">
+                <p className="animate-text text-[#ccff00] text-sm md:text-base font-bold uppercase tracking-widest max-w-3xl leading-relaxed opacity-0">
                     OUR INSTITUTION IS BUILT ON A FOUNDATION OF TRANSFORMATIVE LEARNING, WHERE STUDENTS ARE NOT JUST TAUGHT BUT ARE CHALLENGED TO THINK CRITICALLY, INNOVATE, AND LEAD. WE ARE COMMITTED TO UPHOLDING OUR LONG-STANDING TRADITION OF EXCELLENCE.
                 </p>
 
             </div>
 
             {/* Footer Logos */}
-            <div className="absolute bottom-10 z-10 flex gap-8 items-center">
+            <div className="animate-box absolute bottom-10 z-10 flex gap-8 items-center opacity-0">
                 <div className="relative w-32 h-16">
                     <Image
                         src="/sb-logo-white.png"

@@ -20,14 +20,15 @@ export async function POST(request: Request) {
         const arrayBuffer = await file.arrayBuffer();
         const buffer = Buffer.from(arrayBuffer);
 
-        const result = await new Promise<any>((resolve, reject) => {
+        const result = await new Promise<{ secure_url: string; public_id: string }>((resolve, reject) => {
             const uploadStream = cloudinary.uploader.upload_stream(
                 {
                     folder: 'orders', // Optional: organize uploads
                 },
                 (error, result) => {
                     if (error) reject(error);
-                    else resolve(result);
+                    else if (result) resolve(result);
+                    else reject(new Error("Upload failed: No result returned"));
                 }
             );
             uploadStream.end(buffer);

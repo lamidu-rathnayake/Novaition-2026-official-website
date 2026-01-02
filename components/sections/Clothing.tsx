@@ -2,10 +2,11 @@
 
 import React, { Suspense, useRef, useLayoutEffect } from 'react';
 import { Canvas } from '@react-three/fiber';
-import { Environment, OrbitControls, SpotLight, Center } from '@react-three/drei';
+import { Environment, OrbitControls, SpotLight } from '@react-three/drei';
 import Image from 'next/image';
 import Link from 'next/link';
 import gsap from 'gsap';
+import { useSectionAnimations } from '@/hooks/useSectionAnimations';
 
 function TShirtModel() {
     return (
@@ -36,6 +37,8 @@ function TShirtModel() {
 
 export default function Clothing() {
     const marqueeRef = useRef<HTMLDivElement>(null);
+    const containerRef = useRef<HTMLElement>(null);
+    useSectionAnimations(containerRef);
 
     useLayoutEffect(() => {
         const ctx = gsap.context(() => {
@@ -50,7 +53,7 @@ export default function Clothing() {
     }, []);
 
     return (
-        <section className="relative w-full min-h-screen overflow-hidden bg-black text-white py-4 page-container flex flex-col justify-between">
+        <section id="clothing" ref={containerRef} className="relative w-full min-h-screen overflow-hidden bg-black text-white py-8 page-container flex flex-col justify-between">
             {/* Background Image */}
             <div className="absolute inset-0 z-0 select-none pointer-events-none">
                 <Image
@@ -63,15 +66,17 @@ export default function Clothing() {
                 <div className="absolute inset-0 bg-linear-to-b from-black via-transparent to-black/60 pointer-events-none"></div>
             </div>
 
-            {/* Top Navigation / Header text */}
-            <div className="relative z-10 w-full flex items-center font-display tracking-widest text-sm md:text-base uppercase pt-4">
-                <div className="flex-1 font-bold">NOVAITION CLOTHING</div>
-                <div className="flex-1 text-primary font-bold animate-pulse text-center">MAKE IT YOURS</div>
-                <div className="flex-1 font-bold text-right">2026</div>
+            {/* Standardized Title with Box Reveal to match other sections */}
+            <div className="w-full mb-12 flex justify-center z-10 relative">
+                <div className="overflow-hidden">
+                    <h2 className="animate-title text-5xl md:text-7xl font-bold text-center tracking-wider text-white uppercase transform translate-y-full opacity-0">
+                        CLOTHING
+                    </h2>
+                </div>
             </div>
 
             {/* 3D Model Canvas Area - Centered but shifted up */}
-            <div className="absolute inset-0 z-5 pointer-events-none flex items-start justify-center pt-20 md:pt-10">
+            <div className="animate-box absolute inset-0 z-5 pointer-events-none flex items-start justify-center pt-60 md:pt-48 opacity-0">
                 <div className="w-[90%] h-[50vh] md:w-3/4 md:h-3/4 pointer-events-auto">
                     <Canvas shadows camera={{ position: [0, 0, 6], fov: 40 }}>
                         <ambientLight intensity={0.5} />
@@ -89,37 +94,45 @@ export default function Clothing() {
             </div>
 
             {/* Main Content Area - Pushed to bottom */}
-            <div className="relative z-10 flex-1 flex flex-col justify-end items-center text-center pb-8 md:pb-12 gap-6 pointer-events-none mt-auto">
-                {/* HEADLINE */}
-                <h2 className="text-5xl md:text-7xl font-bold uppercase leading-tight tracking-wider text-white drop-shadow-lg">
-                    LIMITED
-                    <br />
-                    STOCKS AVAILABLE
-                </h2>
+            <div className="relative z-10 flex-1 flex flex-col justify-end items-center text-center pb-14 md:pb-16 gap-6 pointer-events-none mt-auto w-full">
 
-                {/* CTA BUTTON */}
-                <Link href="/pre-order" className="pointer-events-auto">
-                    <button className="bg-primary text-black px-8 py-3 md:px-10 md:py-4 text-lg md:text-xl font-bold uppercase tracking-wider hover:bg-white transition-colors duration-300 shadow-[0_0_20px_rgba(191,237,7,0.4)]">
-                        CLICK TO PRE ORDER
-                    </button>
-                </Link>
-            </div>
+                {/* Visual Glow behind content */}
+                <div className="absolute bottom-20 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[#ccff00]/10 blur-[100px] rounded-full pointer-events-none"></div>
 
-            {/* Bottom Info Row */}
-            <div className="relative z-10 w-full flex justify-between items-end pb-8 md:pb-12 pointer-events-none">
-                <div className="text-2xl md:text-4xl font-bold uppercase font-display tracking-wide">IEEE IAS</div>
+                {/* Content Container - No Blur/Bg as requested, but keeping layout */}
+                <div className="animate-box pointers-events-auto relative p-0 flex flex-col items-center gap-4 overflow-hidden pointer-events-auto opacity-0 group">
 
-                {/* Barcode Graphic (CSS construction) */}
-                <div className="flex flex-col items-center gap-1 opacity-90">
-                    <div className="flex h-10 md:h-12 items-end gap-[2px]">
-                        {/* Simple barcode lines */}
-                        {[...Array(20)].map((_, i) => (
-                            <div key={i} className="bg-white" style={{ width: (i % 3 === 0 || i % 7 === 0) ? '4px' : '2px', height: '100%' }}></div>
-                        ))}
+
+
+                    {/* PRICE BADGE */}
+                    <div className="animate-title bg-[#ccff00] text-black px-4 py-1 text-sm md:text-base font-bold uppercase tracking-widest mb-2 transform -skew-x-12 shadow-[0_0_20px_rgba(204,255,0,0.4)]">
+                        LKR 2800
                     </div>
-                    <span className="text-[10px] tracking-[0.4em] text-white">ORIGINAL</span>
+
+                    {/* HEADLINE */}
+                    <div className="overflow-hidden">
+                        <h2 className="animate-title text-3xl md:text-5xl font-bold uppercase leading-tight tracking-wider text-white drop-shadow-lg transform translate-y-full opacity-0">
+                            LIMITED
+                            <br />
+                            STOCKS AVAILABLE
+                        </h2>
+                    </div>
+
+                    {/* CTA BUTTON */}
+                    <Link href="/pre-order" className="animate-box pointer-events-auto opacity-0">
+                        <button className="bg-primary text-black px-6 py-2 md:px-8 md:py-3 text-base md:text-lg font-bold uppercase tracking-wider hover:bg-white hover:shadow-[0_0_30px_rgba(204,255,0,0.4)] transition-all duration-300 shadow-[0_0_10px_rgba(191,237,7,0.2)] rounded-sm">
+                            CLICK TO PRE ORDER
+                        </button>
+                    </Link>
+
+                    {/* MAKE IT YOURS */}
+                    <div className="animate-box hidden md:block text-primary font-bold animate-pulse tracking-widest text-sm md:text-base uppercase opacity-0">
+                        MAKE IT YOURS
+                    </div>
                 </div>
             </div>
+
+            {/* Bottom Info Row - REMOVED */}
 
             {/* Marquee Footer */}
             <div ref={marqueeRef} className="absolute bottom-0 left-0 w-full bg-primary h-10 md:h-12 flex items-center overflow-hidden z-20 border-t-2 border-black">
