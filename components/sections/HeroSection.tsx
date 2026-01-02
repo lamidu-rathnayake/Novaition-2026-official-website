@@ -1,11 +1,18 @@
+'use client';
+
 import Image from 'next/image';
 import Navbar from '../layout/Navbar';
 import CountdownTimer from '../ui/CountdownTimer';
+import { useRef } from 'react';
+import { useSectionAnimations } from '@/hooks/useSectionAnimations';
 
 export default function HeroSection() {
+    const containerRef = useRef<HTMLElement>(null);
+    useSectionAnimations(containerRef);
+
     return (
         // we can not put .page-container on section because it will affect the absolute children like background image
-        <section className="relative w-full min-h-screen bg-black overflow-hidden flex flex-col">
+        <section ref={containerRef} className="relative w-full min-h-screen bg-black overflow-hidden flex flex-col">
             {/* Background Image Container */}
             <div className="absolute inset-0"> {/* Removed z-0 */}
                 <Image
@@ -28,7 +35,7 @@ export default function HeroSection() {
 
                     {/* Logo Layer - Centered and Larger */}
                     {/* Centered but moved down slightly to group with character */}
-                    <div className="relative w-[80vw] md:w-[60vw] lg:w-[50vw] z-10 opacity-90 translate-y-0">
+                    <div className="animate-box relative w-[80vw] md:w-[60vw] lg:w-[50vw] z-10 translate-y-0 opacity-0">
                         <Image
                             src="/hero-logo.png"
                             alt="Logo"
@@ -47,17 +54,17 @@ export default function HeroSection() {
             </div>
 
             {/* Bottom Bar */}
-            // Using page-container to apply horizontal padding from globals.css
-            // py-4 for vertical padding
+            {/* Using page-container to apply horizontal padding from globals.css */}
+            {/* py-4 for vertical padding */}
             <div className="page-container w-full py-4 flex flex-col md:flex-row justify-between items-end relative z-30 mt-auto bg-transparent" >
 
-                <div className="text-white/70 font-sans text-[10px] md:text-xs tracking-[0.3em] uppercase mb-4 md:mb-0 hidden md:block">
+                <div className="animate-text text-white/70 font-sans text-[10px] md:text-xs tracking-[0.3em] uppercase mb-4 md:mb-0 hidden md:block opacity-0">
                     IEEE Industry Applications Society
                 </div>
 
                 {/* ✅ FIX: Wrap the timer in a container with min-height */}
                 {/* This reserves ~35px on mobile and ~55px on desktop so the layout doesn't collapse */}
-                <div className="min-h-8.75 md:min-h-13.75 flex items-end">
+                <div className="animate-box min-h-8.75 md:min-h-13.75 flex items-end opacity-0">
                     <CountdownTimer
                         targetDate="2026-02-01T00:00:00"
                         scaleMobile={0.5}
