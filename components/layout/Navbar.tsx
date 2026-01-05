@@ -9,13 +9,13 @@ export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
 
     const navItems = [
-        { name: 'SPEAKERS', href: '#' },
-        { name: 'CLOTHING', href: '#' },
-        { name: 'SPONSORS', href: '#' },
-        { name: 'CAMPUS', href: '#' },
-        { name: 'ABOUT', href: '#' },
-        { name: 'TEAMS', href: '#' },
-        { name: 'CONTACT', href: '#' },
+        { name: 'SPEAKERS', href: '#speakers' },
+        { name: 'CLOTHING', href: '#clothing' },
+        { name: 'SPONSORS', href: '#sponsors' },
+        { name: 'CAMPUS', href: '#campus' },
+        { name: 'ABOUT', href: '#about' },
+        { name: 'TEAMS', href: '#teams' },
+        { name: 'CONTACT', href: '#contact' },
     ];
 
     return (

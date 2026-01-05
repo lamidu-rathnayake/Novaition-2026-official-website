@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { useRef } from 'react';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
+import { useSectionAnimations } from '@/hooks/useSectionAnimations';
 
 const sponsors = Array(10).fill({
     name: "IPSUM",
@@ -13,6 +14,7 @@ const sponsors = Array(10).fill({
 export default function Sponsers() {
     const containerRef = useRef<HTMLDivElement>(null);
     const trackRef = useRef<HTMLDivElement>(null);
+    useSectionAnimations(containerRef); // Add standard entry animations
 
     useGSAP(() => {
         if (!trackRef.current) return;
@@ -33,21 +35,25 @@ export default function Sponsers() {
 
 
     return (
-        <section className="page-container py-16 w-full bg-black text-white flex flex-col items-center justify-center overflow-hidden">
+        <section id="sponsors" ref={containerRef} className="page-container py-16 w-full bg-black text-white flex flex-col items-center justify-center overflow-hidden">
 
             {/* Title */}
-            <h2 className="text-4xl md:text-5xl font-bold text-center mb-12 uppercase tracking-wider">
-                OUR MAIN SPONSORS
-            </h2>
+            <div className="w-full mb-12 flex justify-center">
+                <div className="overflow-hidden">
+                    <h2 className="animate-title text-4xl md:text-5xl font-bold text-center uppercase tracking-wider transform translate-y-full opacity-0">
+                        OUR MAIN SPONSORS
+                    </h2>
+                </div>
+            </div>
 
             {/* Marquee Container */}
-            <div ref={containerRef} className="w-full relative overflow-hidden mask-gradient-x">
+            <div className="animate-box w-full relative overflow-hidden mask-gradient-x opacity-0">
                 <div ref={trackRef} className="flex gap-8 w-max">
                     {/* Render Double for continuous loop */}
                     {[...sponsors, ...sponsors].map((sponsor, index) => (
                         <div
                             key={index}
-                            className="w-64 h-32 bg-white/5 border border-primary/50 rounded-lg flex items-center justify-center shrink-0 hover:bg-white/10 transition-colors relative p-8"
+                            className="w-64 h-32 bg-white/3 rounded-lg flex items-center justify-center shrink-0 hover:bg-white/10 transition-colors relative p-8"
                         >
                             <div className="relative w-full h-full">
                                 <Image
