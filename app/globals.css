@@ -39,8 +39,8 @@
   --color-muted: rgb(var(--near-black));
 
 
-  --font-sans: "BBH Bogle", system-ui, sans-serif;
-  --font-display: "BBH Bartle", system-ui, sans-serif;
+  --font-sans: var(--font-rajdhani), system-ui, sans-serif;
+  --font-display: var(--font-orbitron), system-ui, sans-serif;
 
 }
 
@@ -68,13 +68,13 @@
 
 /* all pages and sections must be start with <section class="page-container"> */
 @layer components {
-  .page-container {
+  .page-container,.wrapper {
     padding-left: var(--page-padding);
     padding-right: var(--page-padding);
   }
 
   @media (min-width: 768px) {
-    .page-container {
+    .page-container,.wrapper {
       padding-left: var(--page-padding-md);
       padding-right: var(--page-padding-md);
     }
