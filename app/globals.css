@@ -39,8 +39,8 @@
   --color-muted: rgb(var(--near-black));
 
 
-  --font-sans: "BBH Bogle", system-ui, sans-serif;
-  --font-display: "BBH Bartle", system-ui, sans-serif;
+  --font-sans: var(--font-rajdhani), system-ui, sans-serif;
+  --font-display: var(--font-orbitron), system-ui, sans-serif;
 
 }
 
