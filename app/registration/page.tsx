@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
     title: {
         color: '#000000',
         fontSize: 24,
-        fontWeight: 'bold',
+        fontWeight: 'extrabold',
         textAlign: 'center',
         textTransform: 'uppercase',
         letterSpacing: 2,
@@ -64,6 +64,8 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         marginTop: 10,
+        borderRadius: 8,
+        padding: 16,
     },
     qrCode: {
         width: 120,
@@ -284,7 +286,7 @@ export default function ChatbotPage() {
                                     setUserId(registerData.userId);
                                 } else {
                                     // Fallback ID if API doesn't return one (dev mode)
-                                    setUserId("NOVA-" + Math.floor(Math.random() * 10000));
+                                    setUserId(finalData.nic);
                                 }
                             }, 1000);
                         } else {
