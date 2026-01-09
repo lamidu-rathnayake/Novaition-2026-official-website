@@ -20,7 +20,6 @@ const styles = StyleSheet.create({
         width: 400,
         backgroundColor: '#ffffff',
         border: '2pt solid #000000',
-        borderRadius: 0,
         padding: 24,
         position: 'relative',
     },
