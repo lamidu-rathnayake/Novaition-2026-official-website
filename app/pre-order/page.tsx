@@ -266,7 +266,7 @@ export default function OrderForm() {
                             priority
                         />
                     </div>
-                    <h1 className="text-5xl md:text-7xl font-bold font-display uppercase tracking-tighter text-white drop-shadow-sm mb-4">
+                    <h1 className="text-5xl md:text-7xl font-bold font-display uppercase tracking-wider text-white drop-shadow-sm mb-4">
                         Pre-Order Now
                     </h1>
                     <p className="text-gray-400 text-lg md:text-xl font-sans max-w-2xl mx-auto">

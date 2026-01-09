@@ -27,12 +27,12 @@ export default function HeroSection() {
             <Navbar />
 
             {/* Main Content Area - CENTERED */}
-            <div className="grow flex flex-col items-center justify-center relative z-10 w-full h-full pointer-events-none pb-20">
+            <div className="grow flex flex-col items-center justify-center relative z-10 w-full h-full pointer-events-none">
 
                 <div className="flex flex-col items-center justify-center gap-12">
 
                     {/* Logo Layer */}
-                    <div className="animate-box relative w-[80vw] md:w-[60vw] lg:w-[50vw] z-10 translate-y-0 opacity-0">
+                    <div className="animate-box relative w-[65vw] md:w-[45vw] lg:w-[45vw] z-10 translate-y-0 opacity-0 mx-auto">
                         <Image
                             src="/hero-logo.png"
                             alt="Logo"
@@ -43,24 +43,27 @@ export default function HeroSection() {
                         />
                     </div>
 
-                    {/* Centered Countdown Timer */}
-                    <div className="animate-box flex flex-col items-center opacity-0 pointer-events-auto">
-                        <p className="text-neutral-400 font-mono text-sm uppercase tracking-[0.5em] mb-6">Event Starts In</p>
-                        <CountdownTimer
-                            targetDate="2026-02-01T00:00:00"
-                            scaleMobile={0.7}
-                            scaleDesktop={1.2}
-                        />
-                    </div>
 
                 </div>
 
             </div>
 
             {/* Bottom Bar */}
-            <div className="page-container w-full py-4 flex flex-col md:flex-row justify-between items-end relative z-30 mt-auto bg-transparent" >
-                <div className="animate-text text-white/70 font-sans text-[10px] md:text-xs tracking-[0.3em] uppercase mb-4 md:mb-0 hidden md:block opacity-0">
+            <div className="page-container w-full py-4 flex flex-col items-center md:flex-row md:justify-between md:items-end relative z-30 mt-auto bg-transparent" >
+    
+                {/* This is already hidden on mobile via 'hidden md:block', so no changes needed here */}
+                <div className="animat-box text-white/70 font-sans text-[10px] md:text-xs tracking-[0.3em] uppercase mb-4 md:mb-0">
                     IEEE Industry Applications Society
+                </div>
+                
+                {/* Centered Countdown Timer */}
+                <div className="animate-box flex flex-col items-center opacity-0 pointer-events-auto">
+                    <p className="text-neutral-400 font-mono text-sm uppercase tracking-[0.5em] mb-4">Event Starts In</p>
+                    <CountdownTimer
+                        targetDate="2026-02-01T00:00:00"
+                        scaleMobile={0.7}
+                        scaleDesktop={1.2}
+                    />
                 </div>
             </div>
 

@@ -37,7 +37,7 @@ export default function Registration() {
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent pointer-events-none" />
 
             <div className="z-10 flex flex-col items-center text-center max-w-4xl mx-auto">
-                <h2 className="reg-text text-4xl md:text-6xl font-bold font-sans text-white mb-6 uppercase tracking-tight">
+                <h2 className="reg-text text-4xl md:text-6xl font-bold font-sans text-white mb-6 uppercase">
                     Secure Your Spot
                 </h2>
 

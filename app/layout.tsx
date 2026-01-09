@@ -1,7 +1,15 @@
 import type { Metadata } from "next";
-import { Orbitron, Rajdhani } from "next/font/google";
+import { Orbitron, Rajdhani,  } from "next/font/google";
 import "./globals.css";
 import Preloader from "@/components/ui/Preloader";
+import { Bebas_Neue } from 'next/font/google';
+
+const bebasNeue = Bebas_Neue({
+  weight: '400',       // Bebas Neue only supports 400 on Google Fonts
+  subsets: ['latin'],
+  variable: "--font-bebas",
+  display: 'swap',
+})
 
 const orbitron = Orbitron({
   subsets: ["latin"],
@@ -29,7 +37,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${orbitron.variable} ${rajdhani.variable} antialiased`}
+        className={`${orbitron.variable} ${rajdhani.variable} ${bebasNeue.variable} antialiased`}
         suppressHydrationWarning
       >
         <Preloader />

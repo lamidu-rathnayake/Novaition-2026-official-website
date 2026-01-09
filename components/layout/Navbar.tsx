@@ -18,13 +18,13 @@ export default function Navbar() {
     }, []);
 
     const navItems = [
-        { name: 'SPEAKERS', href: '#speakers' },
-        { name: 'CLOTHING', href: '#clothing' },
-        { name: 'SPONSORS', href: '#sponsors' },
-        { name: 'CAMPUS', href: '#campus' },
-        { name: 'ABOUT', href: '#about' },
+        { name: 'SPEAKERS', href: '/#speakers' },
+        { name: 'CLOTHING', href: '/#clothing' },
+        { name: 'SPONSORS', href: '/#sponsors' },
+        { name: 'CAMPUS', href: '/#campus' },
+        { name: 'ABOUT', href: '/#about' },
         { name: 'TEAMS', href: '/teams' },
-        { name: 'CONTACT', href: '#contact' },
+        { name: 'CONTACT', href: '/#contact' },
     ];
 
     return (
@@ -51,14 +51,14 @@ export default function Navbar() {
                 {/* Desktop Navigation */}
                 <div className="hidden lg:flex items-center gap-8">
                     {/* Decorative Line */}
-                    <div className="h-px w-16 bg-gradient-to-r from-transparent to-white/20"></div>
+                    {/* <div className="h-px w-16 bg-gradient-to-r from-transparent to-white/20"></div> */}
 
                     <div className="flex items-center gap-8">
                         {navItems.map((item) => (
                             <Link
                                 key={item.name}
                                 href={item.href}
-                                className="relative text-white/80 font-mono text-xs tracking-widest hover:text-primary transition-colors uppercase group py-2"
+                                className="relative text-white/80 font-sans text-xs tracking-widest hover:text-primary transition-colors uppercase group py-2"
                             >
                                 {item.name}
                                 <span className="absolute bottom-0 left-0 w-0 h-px bg-primary transition-all duration-300 group-hover:w-full"></span>
@@ -67,11 +67,11 @@ export default function Navbar() {
                     </div>
 
                     {/* Decorative Line */}
-                    <div className="h-px w-16 bg-gradient-to-l from-transparent to-white/20"></div>
+                    {/* <div className="h-px w-16 bg-gradient-to-l from-transparent to-white/20"></div> */}
 
                     <Link
                         href="/registration"
-                        className="relative group overflow-hidden bg-transparent border border-primary/50 hover:border-primary text-primary hover:text-black font-display text-xs font-bold tracking-wider px-6 py-2 uppercase transition-all duration-300"
+                        className="relative group overflow-hidden bg-transparent border border-primary/50 hover:border-primary text-primary hover:text-black font-sans text-xs font-bold tracking-wider px-6 py-2 uppercase transition-all duration-300"
                     >
                         <span className="relative z-10 transition-colors duration-300">Register Access</span>
                         <div className="absolute inset-0 bg-primary transform -translate-x-full skew-x-12 group-hover:translate-x-0 transition-transform duration-300 ease-out z-0"></div>
