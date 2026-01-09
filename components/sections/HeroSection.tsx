@@ -52,7 +52,7 @@ export default function HeroSection() {
             <div className="page-container w-full py-4 flex flex-col items-center md:flex-row md:justify-between md:items-end relative z-30 mt-auto bg-transparent" >
     
                 {/* This is already hidden on mobile via 'hidden md:block', so no changes needed here */}
-                <div className="animat-box text-white/70 font-sans text-[10px] md:text-xs tracking-[0.3em] uppercase mb-4 md:mb-0">
+                <div className="text-white/70 font-sans text-[10px] md:text-xs tracking-[0.3em] uppercase mb-4 md:mb-0 hidden md:block">
                     IEEE Industry Applications Society
                 </div>
                 

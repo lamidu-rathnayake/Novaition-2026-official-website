@@ -27,7 +27,7 @@ export default function University() {
 
                 {/* Title */}
                 <div className="overflow-hidden">
-                    <h2 className="animate-title text-5xl md:text-7xl font-bold uppercase leading-tight tracking-wider transform translate-y-full opacity-0">
+                    <h2 className="animate-title text-5xl md:text-7xl font-bold uppercase leading-tight tracking-normal transform translate-y-full opacity-0">
                         <span className="text-[#ccff00]">SRI LANKA</span> <span className="text-white">TECHNOLOGY</span>
                         <br />
                         <span className="text-white">CAMPUS</span>

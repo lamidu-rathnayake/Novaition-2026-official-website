@@ -266,7 +266,8 @@ export default function OrderForm() {
                             priority
                         />
                     </div>
-                    <h1 className="text-5xl md:text-7xl font-bold font-display uppercase tracking-wider text-white drop-shadow-sm mb-4">
+                    {/* Changed font-display to font-sans */}
+                    <h1 className="text-5xl md:text-7xl font-bold font-sans uppercase tracking-wider text-white drop-shadow-sm mb-4">
                         Pre-Order Now
                     </h1>
                     <p className="text-gray-400 text-lg md:text-xl font-sans max-w-2xl mx-auto">
@@ -283,7 +284,8 @@ export default function OrderForm() {
 
                             {/* Name */}
                             <div className="space-y-2">
-                                <label className="text-sm uppercase tracking-widest text-lime font-bold ml-1 font-display">Full Name</label>
+                                {/* Changed font-display to font-sans */}
+                                <label className="text-sm uppercase tracking-widest text-lime font-bold ml-1 font-sans">Full Name</label>
                                 <input
                                     type="text"
                                     name="name"
@@ -291,14 +293,16 @@ export default function OrderForm() {
                                     onChange={handleInputChange}
                                     required
                                     placeholder="Enter your name"
-                                    className={`w-full bg-black/40 border rounded-xl px-4 py-4 text-white text-lg placeholder-gray-500 focus:outline-none focus:ring-1 transition-all duration-300 font-display ${errors.name ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : 'border-white/10 focus:border-lime focus:ring-lime'}`}
+                                    /* Changed font-display to font-sans */
+                                    className={`w-full bg-black/40 border rounded-xl px-4 py-4 text-white text-lg placeholder-gray-500 focus:outline-none focus:ring-1 transition-all duration-300 font-sans ${errors.name ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : 'border-white/10 focus:border-lime focus:ring-lime'}`}
                                 />
                                 {errors.name && <p className="text-xs text-red-500 mt-1 ml-1">{errors.name}</p>}
                             </div>
 
                             {/* Phone */}
                             <div className="space-y-2">
-                                <label className="text-sm uppercase tracking-widest text-lime font-bold ml-1 font-display">Phone Number</label>
+                                {/* Changed font-display to font-sans */}
+                                <label className="text-sm uppercase tracking-widest text-lime font-bold ml-1 font-sans">Phone Number</label>
                                 <input
                                     type="tel"
                                     name="phoneNumber"
@@ -307,14 +311,16 @@ export default function OrderForm() {
                                     onBlur={handleBlur}
                                     required
                                     placeholder="07XXXXXXXX"
-                                    className={`w-full bg-black/40 border rounded-xl px-4 py-4 text-white text-lg placeholder-gray-500 focus:outline-none focus:ring-1 transition-all duration-300 font-display ${errors.phoneNumber ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : 'border-white/10 focus:border-lime focus:ring-lime'}`}
+                                    /* Changed font-display to font-sans */
+                                    className={`w-full bg-black/40 border rounded-xl px-4 py-4 text-white text-lg placeholder-gray-500 focus:outline-none focus:ring-1 transition-all duration-300 font-sans ${errors.phoneNumber ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : 'border-white/10 focus:border-lime focus:ring-lime'}`}
                                 />
                                 {errors.phoneNumber && <p className="text-xs text-red-500 mt-1 ml-1">{errors.phoneNumber}</p>}
                             </div>
 
                             {/* Email */}
                             <div className="space-y-2">
-                                <label className="text-sm uppercase tracking-widest text-lime font-bold ml-1 font-display">Email Address</label>
+                                {/* Changed font-display to font-sans */}
+                                <label className="text-sm uppercase tracking-widest text-lime font-bold ml-1 font-sans">Email Address</label>
                                 <div className="relative">
                                     <input
                                         type="email"
@@ -324,7 +330,8 @@ export default function OrderForm() {
                                         onBlur={(e) => { handleBlur(e); }}
                                         required
                                         placeholder="you@example.com"
-                                        className={`w-full bg-black/40 border rounded-xl px-4 py-4 text-white text-lg placeholder-gray-500 focus:outline-none focus:ring-1 transition-all duration-300 font-display ${errors.email || isEmailTaken ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : 'border-white/10 focus:border-lime focus:ring-lime'
+                                        /* Changed font-display to font-sans */
+                                        className={`w-full bg-black/40 border rounded-xl px-4 py-4 text-white text-lg placeholder-gray-500 focus:outline-none focus:ring-1 transition-all duration-300 font-sans ${errors.email || isEmailTaken ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : 'border-white/10 focus:border-lime focus:ring-lime'
                                             }`}
                                     />
                                     {checkingEmail && <span className="absolute right-4 top-1/2 -translate-y-1/2 text-xs text-gray-500 animate-pulse">Checking...</span>}
@@ -335,7 +342,8 @@ export default function OrderForm() {
 
                             {/* NIC */}
                             <div className="space-y-2">
-                                <label className="text-sm uppercase tracking-widest text-lime font-bold ml-1 font-display">NIC Number</label>
+                                {/* Changed font-display to font-sans */}
+                                <label className="text-sm uppercase tracking-widest text-lime font-bold ml-1 font-sans">NIC Number</label>
                                 <div className="relative">
                                     <input
                                         type="text"
@@ -345,7 +353,8 @@ export default function OrderForm() {
                                         onBlur={(e) => { handleBlur(e); if (!validateNIC(e.target.value)) checkId(e.target.value); }}
                                         required
                                         placeholder="National ID"
-                                        className={`w-full bg-black/40 border rounded-xl px-4 py-4 text-white text-lg placeholder-gray-500 focus:outline-none focus:ring-1 transition-all duration-300 font-display ${errors.id || isIdTaken ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : 'border-white/10 focus:border-lime focus:ring-lime'
+                                        /* Changed font-display to font-sans */
+                                        className={`w-full bg-black/40 border rounded-xl px-4 py-4 text-white text-lg placeholder-gray-500 focus:outline-none focus:ring-1 transition-all duration-300 font-sans ${errors.id || isIdTaken ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : 'border-white/10 focus:border-lime focus:ring-lime'
                                             }`}
                                     />
                                     {checkingId && <span className="absolute right-4 top-1/2 -translate-y-1/2 text-xs text-gray-500 animate-pulse">Checking...</span>}
@@ -358,7 +367,8 @@ export default function OrderForm() {
 
                         {/* Address - Full width */}
                         <div className="space-y-2">
-                            <label className="text-sm uppercase tracking-widest text-lime font-bold ml-1 font-display">Delivery Address</label>
+                            {/* Changed font-display to font-sans */}
+                            <label className="text-sm uppercase tracking-widest text-lime font-bold ml-1 font-sans">Delivery Address</label>
                             <textarea
                                 name="address"
                                 value={formData.address}
@@ -366,7 +376,8 @@ export default function OrderForm() {
                                 required
                                 rows={3}
                                 placeholder="Your full delivery address"
-                                className={`w-full bg-black/40 border rounded-xl px-4 py-4 text-white text-lg placeholder-gray-500 focus:outline-none focus:ring-1 transition-all duration-300 resize-none font-display ${errors.address ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : 'border-white/10 focus:border-lime focus:ring-lime'}`}
+                                /* Changed font-display to font-sans */
+                                className={`w-full bg-black/40 border rounded-xl px-4 py-4 text-white text-lg placeholder-gray-500 focus:outline-none focus:ring-1 transition-all duration-300 resize-none font-sans ${errors.address ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : 'border-white/10 focus:border-lime focus:ring-lime'}`}
                             />
                             {errors.address && <p className="text-xs text-red-500 mt-1 ml-1">{errors.address}</p>}
                         </div>
@@ -377,12 +388,14 @@ export default function OrderForm() {
 
                             {/* Cloth Type */}
                             <div className="space-y-2">
-                                <label className="text-sm uppercase tracking-widest text-lime font-bold ml-1 font-display">Cloth Type</label>
+                                {/* Changed font-display to font-sans */}
+                                <label className="text-sm uppercase tracking-widest text-lime font-bold ml-1 font-sans">Cloth Type</label>
                                 <div className="relative">
                                     <button
                                         type="button"
                                         onClick={() => setIsClothTypeOpen(!isClothTypeOpen)}
-                                        className={`w-full bg-black/40 border rounded-xl px-4 py-4 text-white text-lg focus:outline-none focus:ring-1 transition-all duration-300 font-display text-left flex justify-between items-center ${errors.clothType ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : 'border-white/10 focus:border-lime focus:ring-lime'}`}
+                                        /* Changed font-display to font-sans */
+                                        className={`w-full bg-black/40 border rounded-xl px-4 py-4 text-white text-lg focus:outline-none focus:ring-1 transition-all duration-300 font-sans text-left flex justify-between items-center ${errors.clothType ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : 'border-white/10 focus:border-lime focus:ring-lime'}`}
                                     >
                                         <span className={formData.clothType ? "text-white" : "text-gray-500"}>
                                             {formData.clothType || "Select Size"}
@@ -407,7 +420,8 @@ export default function OrderForm() {
                                                             return newErrors;
                                                         });
                                                     }}
-                                                    className="px-4 py-3 text-white text-lg hover:bg-primary hover:text-black transition-colors duration-200 cursor-pointer font-display"
+                                                    /* Changed font-display to font-sans */
+                                                    className="px-4 py-3 text-white text-lg hover:bg-primary hover:text-black transition-colors duration-200 cursor-pointer font-sans"
                                                 >
                                                     {size}
                                                 </div>
@@ -420,7 +434,8 @@ export default function OrderForm() {
 
                             {/* Amount */}
                             <div className="space-y-2">
-                                <label className="text-sm uppercase tracking-widest text-lime font-bold ml-1 font-display">Quantity</label>
+                                {/* Changed font-display to font-sans */}
+                                <label className="text-sm uppercase tracking-widest text-lime font-bold ml-1 font-sans">Quantity</label>
                                 <input
                                     type="number"
                                     name="amount"
@@ -430,21 +445,24 @@ export default function OrderForm() {
                                     required
                                     min="1"
                                     placeholder="1"
-                                    className={`w-full bg-black/40 border rounded-xl px-4 py-4 text-white text-lg placeholder-gray-500 focus:outline-none focus:ring-1 transition-all duration-300 font-display ${errors.amount ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : 'border-white/10 focus:border-lime focus:ring-lime'}`}
+                                    /* Changed font-display to font-sans */
+                                    className={`w-full bg-black/40 border rounded-xl px-4 py-4 text-white text-lg placeholder-gray-500 focus:outline-none focus:ring-1 transition-all duration-300 font-sans ${errors.amount ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : 'border-white/10 focus:border-lime focus:ring-lime'}`}
                                 />
                                 {errors.amount && <p className="text-xs text-red-500 mt-1 ml-1">{errors.amount}</p>}
                             </div>
 
                             {/* Reference Image */}
                             <div className="space-y-2">
-                                <label className="text-sm uppercase tracking-widest text-lime font-bold ml-1 font-display">Payment Receipt</label>
+                                {/* Changed font-display to font-sans */}
+                                <label className="text-sm uppercase tracking-widest text-lime font-bold ml-1 font-sans">Payment Receipt</label>
                                 <div className="relative group">
                                     <input
                                         type="file"
                                         accept="image/*"
                                         onChange={handleImageChange}
                                         required
-                                        className={`w-full bg-black/40 text-base text-gray-400 tracking-wider file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-bold file:text-black file:bg-primary hover:file:bg-white file:transition-colors file:cursor-pointer cursor-pointer border rounded-xl p-2 font-display ${errors.image ? 'border-red-500' : 'border-white/10'}`}
+                                        /* Changed font-display to font-sans */
+                                        className={`w-full bg-black/40 text-base text-gray-400 tracking-wider file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-bold file:text-black file:bg-primary hover:file:bg-white file:transition-colors file:cursor-pointer cursor-pointer border rounded-xl p-2 font-sans ${errors.image ? 'border-red-500' : 'border-white/10'}`}
                                     />
                                     {errors.image && <p className="text-xs text-red-500 mt-1 ml-1">{errors.image}</p>}
                                 </div>
@@ -457,7 +475,8 @@ export default function OrderForm() {
                             <button
                                 type="submit"
                                 disabled={loading || checkingEmail || isEmailTaken === true || checkingId || isIdTaken === true}
-                                className="w-full md:w-auto px-12 py-4 bg-lime text-black font-bold uppercase tracking-widest text-lg rounded-full bg-primary hover:bg-white hover:scale-105 transition-all duration-300 shadow-[0_0_20px_rgba(191,237,7,0.3)] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 font-display"
+                                /* Changed font-display to font-sans */
+                                className="w-full md:w-auto px-12 py-4 bg-lime text-black font-bold uppercase tracking-widest text-lg rounded-full bg-primary hover:bg-white hover:scale-105 transition-all duration-300 shadow-[0_0_20px_rgba(191,237,7,0.3)] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 font-sans"
                             >
                                 {loading ? (
                                     <span className="flex items-center gap-2">

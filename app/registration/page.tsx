@@ -367,8 +367,8 @@ export default function ChatbotPage() {
                             className={`flex w-full ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}
                         >
                             <div className={`max-w-[85%] md:max-w-[70%] px-5 py-3 rounded-2xl text-sm md:text-base leading-relaxed animate-in fade-in slide-in-from-bottom-2 duration-300 ${msg.sender === 'user'
-                                    ? 'bg-primary text-black font-medium rounded-br-none'
-                                    : 'bg-white/10 text-white backdrop-blur-md border border-white/5 rounded-bl-none'
+                                ? 'bg-primary text-black font-medium rounded-br-none'
+                                : 'bg-white/10 text-white backdrop-blur-md border border-white/5 rounded-bl-none'
                                 }`}>
                                 {msg.text}
                             </div>
@@ -410,16 +410,19 @@ export default function ChatbotPage() {
 
             {/* Ticket Overlay */}
             {userId && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-md animate-in fade-in duration-500">
-                    <div className="relative w-full max-w-sm bg-white text-black p-0 rounded-none shadow-[0_0_50px_rgba(255,255,255,0.2)] overflow-hidden">
+                <div className="fixed inset-0 z-50 flex p-4 bg-black/90 backdrop-blur-md animate-in fade-in duration-500 overflow-y-auto">
+
+                    {/* 4. Added m-auto to safely center the modal. */}
+                    {/* If screen is big, it centers. If screen is small, it starts at top and lets you scroll. */}
+                    <div className="    relative w-full max-w-sm bg-white text-black p-0 rounded-none shadow-[0_0_50px_rgba(255,255,255,0.2)] overflow-hidden m-auto">
 
                         {/* Ticket Visuals */}
                         <div className="p-8 pb-10 text-center relative border-b-4 border-dashed border-gray-300">
                             {/* Holes */}
-                            <div className="absolute -left-4 bottom-[-16px] w-8 h-8 bg-black rounded-full"></div>
-                            <div className="absolute -right-4 bottom-[-16px] w-8 h-8 bg-black rounded-full"></div>
+                            <div className="absolute -left-4 -bottom-4 w-8 h-8 bg-black rounded-full"></div>
+                            <div className="absolute -right-4 -bottom-4 w-8 h-8 bg-black rounded-full"></div>
 
-                            <h2 className="text-2xl font-black uppercase tracking-widest mb-1">Novation 2026</h2>
+                            <h2 className="text-2xl text-black uppercase tracking-widest mb-1">Nov<span className='text-primary'>ai</span>tion 2026</h2>
                             <p className="text-sm text-gray-500 uppercase tracking-[0.2em] mb-6">Official Entry Pass</p>
 
                             <div className="bg-gray-100 p-4 rounded-lg mb-6 border border-gray-200">
@@ -428,16 +431,16 @@ export default function ChatbotPage() {
 
                             <div className="space-y-4 text-left">
                                 <div>
-                                    <p className="text-[10px] text-gray-400 uppercase font-bold">Attendee</p>
-                                    <p className="text-lg font-bold leading-none truncate">{userData.name}</p>
+                                    <p className="text-[10px] text-black uppercase font-bold">Attendee</p>
+                                    <p className="text-lg font-medium leading-none truncate text-gray-900">{userData.name}</p>
                                 </div>
                                 <div>
-                                    <p className="text-[10px] text-gray-400 uppercase font-bold">University</p>
-                                    <p className="text-sm font-medium leading-none truncate">{userData.university}</p>
+                                    <p className="text-[10px] uppercase font-bold text-black">University</p>
+                                    <p className="text-sm font-medium leading-none truncate text-gray-900">{userData.university}</p>
                                 </div>
                                 <div>
-                                    <p className="text-[10px] text-gray-400 uppercase font-bold">Ticket ID</p>
-                                    <p className="text-xs font-mono text-gray-500">{userId}</p>
+                                    <p className="text-[10px] text-black uppercase font-bold">Ticket ID</p>
+                                    <p className="text-sm font-medium text-gray-900">{userId}</p>
                                 </div>
                             </div>
                         </div>

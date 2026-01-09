@@ -99,15 +99,10 @@ export default function Speakers() {
 
             {/* Header */}
             <div className="w-full mb-16 z-10 relative flex flex-col items-center">
-                <div className="overflow-hidden mb-4">
-                    <h2 className="animate-title text-6xl md:text-8xl font-display font-bold text-center tracking-widest text-white uppercase transform translate-y-full opacity-0">
+                <div className="overflow-hidden mb-4    ">
+                    <h2 className="animate-title text-6xl md:text-7xl font-sans font-bold text-center tracking-normal text-white uppercase transform translate-y-full opacity-0">
                         SPEAKERS
                     </h2>
-                </div>
-                <div className="flex items-center gap-2 animate-box opacity-0">
-                    <div className="h-[2px] w-24 bg-primary/30" />
-                    <div className="h-2 w-2 bg-primary rotate-45" />
-                    <div className="h-[2px] w-24 bg-primary/30" />
                 </div>
             </div>
 
@@ -159,21 +154,15 @@ export default function Speakers() {
                 <div className="w-full md:w-1/2 flex flex-col items-center md:items-start order-2 text-center md:text-left">
                     <div ref={textRef} className="animate-box opacity-0 max-w-lg">
 
-                        {/* Tech ID Header */}
-                        <div className="flex items-center gap-3 mb-6 justify-center md:justify-start">
-                            <span className="font-mono text-primary text-sm tracking-widest">0{currentSpeaker.id} // SPEAKER_PROFILE</span>
-                            <div className="h-px w-12 bg-primary/50" />
-                        </div>
-
-                        <h3 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white mb-4 leading-none uppercase">
+                        <h3 className="animate-box tracking-normal text-4xl md:text-5xl lg:text-5xl font-sans font-bold text-white leading-none uppercase">
                             {currentSpeaker.name}
                         </h3>
 
-                        <p className="font-mono text-primary text-sm md:text-base tracking-widest mb-8 border-l-2 border-primary pl-4 mx-auto md:mx-0 max-w-md md:max-w-none text-left">
+                        <p className="animate-box font-normal text-primary text-sm md:text-base tracking-widest border-b-2 border-primary mb-8 mx-auto md:mx-0 w-fit text-left">
                             {currentSpeaker.title}
                         </p>
 
-                        <p className="font-sans text-neutral-400 leading-relaxed tracking-wide text-sm md:text-base mb-10">
+                        <p className="animate-box font-sans text-neutral-400 leading-relaxed tracking-wide text-sm md:text-base mb-10">
                             {currentSpeaker.description}
                         </p>
 
@@ -181,7 +170,7 @@ export default function Speakers() {
                         <div className="flex items-center gap-6 justify-center md:justify-start">
                             <button
                                 onClick={prevSlide}
-                                className="group relative w-14 h-14 flex items-center justify-center border border-white/20 bg-white/5 hover:bg-primary hover:border-primary transition-all duration-300 clip-path-octagon"
+                                className="group relative w-14 h-14 flex items-center justify-center border border-white/20 bg-white/5 hover:bg-primary hover:border-primary transition-all duration-300 rounded-full"
                             >
                                 <ChevronLeft className="text-white group-hover:text-black transition-colors" />
                             </button>
@@ -198,15 +187,13 @@ export default function Speakers() {
 
                             <button
                                 onClick={nextSlide}
-                                className="group relative w-14 h-14 flex items-center justify-center border border-white/20 bg-white/5 hover:bg-primary hover:border-primary transition-all duration-300 clip-path-octagon"
+                                className="group relative w-14 h-14 flex items-center justify-center border border-white/20 bg-white/5 hover:bg-primary hover:border-primary transition-all duration-300 rounded-full"
                             >
                                 <ChevronRight className="text-white group-hover:text-black transition-colors" />
                             </button>
                         </div>
-
                     </div>
                 </div>
-
             </div>
 
             <style jsx>{`

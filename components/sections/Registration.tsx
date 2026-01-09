@@ -37,8 +37,8 @@ export default function Registration() {
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent pointer-events-none" />
 
             <div className="z-10 flex flex-col items-center text-center max-w-4xl mx-auto">
-                <h2 className="reg-text text-4xl md:text-6xl font-bold font-sans text-white mb-6 uppercase">
-                    Secure Your Spot
+                <h2 className="reg-text text-4xl md:text-7xl font-bold font-sans text-white mb-6 uppercase">
+                    Secure Your <span className='text-primary'>Spot</span>
                 </h2>
 
                 <p className="reg-text text-gray-400 text-lg md:text-xl mb-10 max-w-2xl font-light">
@@ -49,7 +49,7 @@ export default function Registration() {
                 <div className="reg-text">
                     <Link
                         href="/registration"
-                        className="group relative inline-flex items-center justify-center px-8 py-4 bg-primary text-black font-bold text-lg tracking-widest uppercase rounded-full overflow-hidden transition-transform hover:scale-105"
+                        className="w-full md:w-auto group relative bg-primary text-black px-6 py-3 md:px-10 md:py-4 text-sm md:text-lg font-bold uppercase tracking-wider overflow-hidden transition-all duration-300 hover:shadow-[0_0_40px_rgba(204,255,0,0.5)] rounded-sm"
                     >
                         <span className="relative z-10">Register Now</span>
                         <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity duration-300" />

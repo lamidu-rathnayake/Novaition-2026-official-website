@@ -40,8 +40,8 @@ export default function Sponsers() {
             {/* Title */}
             <div className="w-full mb-12 flex justify-center">
                 <div className="overflow-hidden">
-                    <h2 className="animate-title text-4xl md:text-5xl font-bold text-center uppercase tracking-wider transform translate-y-full opacity-0">
-                        OUR MAIN SPONSORS
+                    <h2 className="animate-title text-4xl md:text-7xl font-bold text-center uppercase tracking-normal transform translate-y-full opacity-0">
+                        OUR MAIN <span className='text-primary'>SPONSORS</span>
                     </h2>
                 </div>
             </div>
