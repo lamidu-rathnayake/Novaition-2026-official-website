@@ -120,9 +120,7 @@ export default function Clothing() {
             </div>
 
             {/* --- 3D CANVAS AREA --- */}
-            <div className="animate-box absolute inset-0 z-10 pointer-events-none flex items-center justify-center opacity-0">
-                <div className="scanner-line absolute w-full h-[1px] bg-primary/60 blur-[3px] z-20 top-0 hidden md:block shadow-[0_0_15px_#ccff00]"></div>
-                
+            <div className="animate-box absolute inset-0 z-10 pointer-events-none flex items-center justify-center opacity-0">                
                 <div className="w-full h-full pointer-events-auto relative -mt-20 md:mt-0">
                     <Canvas 
                         shadows 
@@ -202,14 +200,14 @@ export default function Clothing() {
                     {[...Array(10)].map((_, i) => (
                         <div key={i} className="flex items-center mx-4 md:mx-8">
                              <span className="text-white font-mono text-[10px] md:text-xs uppercase tracking-[0.3em]">
-                                /// EXCLUSIVE AI TECH WEAR /// LIMITED EDITION RUN ///
+                                /// EXCLUSIVE NOVAITION WEAR /// LIMITED EDITION RUN ///
                             </span>
                         </div>
                     ))}
                     {[...Array(10)].map((_, i) => (
                         <div key={`dup-${i}`} className="flex items-center mx-4 md:mx-8">
                             <span className="text-white font-mono text-[10px] md:text-xs uppercase tracking-[0.3em]">
-                                /// EXCLUSIVE AI TECH WEAR /// LIMITED EDITION RUN ///
+                                /// EXCLUSIVE EVENT WEAR /// LIMITED EDITION RUN ///
                             </span>
                         </div>
                     ))}
