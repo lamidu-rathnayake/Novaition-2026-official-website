@@ -8,7 +8,7 @@ export default function Contact() {
     useSectionAnimations(containerRef);
 
     return (
-        <section id="contact" ref={containerRef} className="page-container w-full min-h-screen bg-black text-foreground flex flex-col items-center justify-center relative overflow-hidden py-24">
+        <section id="contact" ref={containerRef} className="page-container w-full min-h-screen bg-black text-foreground flex flex-col items-center justify-center relative overflow-hidden py-16 md:py-24">
 
             {/* Background Tech Elements */}
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,theme(colors.neutral.900)_0%,theme(colors.black)_100%)] z-0" />
@@ -20,7 +20,7 @@ export default function Contact() {
             {/* Title Block */}
             <div className="w-full mb-20 flex flex-col items-center z-10">
                 <div className="overflow-hidden">
-                    <h2 className="animate-title text-6xl md:text-8xl font-display font-bold text-center tracking-widest text-white uppercase transform translate-y-full opacity-0">
+                    <h2 className="animate-title text-4xl md:text-6xl lg:text-8xl font-display font-bold text-center tracking-widest text-white uppercase transform translate-y-full opacity-0">
                         CONTACT
                     </h2>
                 </div>

@@ -88,7 +88,7 @@ export default function Speakers() {
     const currentSpeaker = speakers[currentIndex];
 
     return (
-        <section id="speakers" ref={containerRef} className="page-container py-24 relative w-full min-h-screen bg-black text-white flex flex-col justify-center overflow-hidden">
+        <section id="speakers" ref={containerRef} className="page-container py-16 md:py-24 relative w-full min-h-screen bg-black text-white flex flex-col justify-center overflow-hidden">
 
             {/* Background Tech Elements */}
             <div className="absolute inset-0 z-0">
@@ -100,7 +100,7 @@ export default function Speakers() {
             {/* Header */}
             <div className="w-full mb-16 z-10 relative flex flex-col items-center">
                 <div className="overflow-hidden mb-4">
-                    <h2 className="animate-title text-6xl md:text-8xl font-display font-bold text-center tracking-widest text-white uppercase transform translate-y-full opacity-0">
+                    <h2 className="animate-title text-4xl md:text-6xl lg:text-8xl font-display font-bold text-center tracking-widest text-white uppercase transform translate-y-full opacity-0">
                         SPEAKERS
                     </h2>
                 </div>
@@ -115,7 +115,7 @@ export default function Speakers() {
 
                 {/* Left: Holographic Image Card */}
                 <div className="w-full md:w-1/2 flex justify-center md:justify-end order-1">
-                    <div ref={imageRef} className="animate-box opacity-0 relative w-[300px] md:w-[400px] h-[400px] md:h-[500px] group">
+                    <div ref={imageRef} className="animate-box opacity-0 relative w-full max-w-[300px] md:max-w-[400px] h-[400px] md:h-[500px] group">
 
                         {/* Card Frame */}
                         <div className="absolute inset-0 border border-white/20 bg-white/5 backdrop-blur-sm rounded-lg clip-path-tech">
@@ -165,7 +165,7 @@ export default function Speakers() {
                             <div className="h-px w-12 bg-primary/50" />
                         </div>
 
-                        <h3 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white mb-4 leading-none uppercase">
+                        <h3 className="text-3xl md:text-5xl lg:text-6xl font-display font-bold text-white mb-4 leading-none uppercase">
                             {currentSpeaker.name}
                         </h3>
 

@@ -6,14 +6,16 @@ import Contact from '@/components/sections/Contact';
 import University from '@/components/sections/University';
 import Sponsers from '@/components/sections/Sponsers';
 import Registration from '@/components/sections/Registration';
+import TeamsTeaser from '@/components/sections/TeamsTeaser';
 
 export default function Home() {
   return (
-    <main>
+    <main className="w-full overflow-x-hidden">
       <HeroSection />
       <AboutSection />
       <Registration />
       <Speakers />
+      <TeamsTeaser />
       <Clothing />
       <University />
       <Sponsers />

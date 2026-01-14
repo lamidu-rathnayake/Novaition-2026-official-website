@@ -31,17 +31,17 @@ export default function Registration() {
     }, { scope: containerRef });
 
     return (
-        <section ref={containerRef} className="page-container relative w-full min-h-[50vh] flex flex-col items-center justify-center py-20 overflow-hidden">
+        <section ref={containerRef} className="page-container relative w-full min-h-[40vh] md:min-h-[50vh] flex flex-col items-center justify-center py-12 md:py-20 overflow-hidden">
 
             {/* Background Accent */}
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent pointer-events-none" />
 
             <div className="z-10 flex flex-col items-center text-center max-w-4xl mx-auto">
-                <h2 className="reg-text text-4xl md:text-6xl font-bold font-sans text-white mb-6 uppercase tracking-tight">
+                <h2 className="reg-text text-3xl md:text-6xl font-bold font-sans text-white mb-4 md:mb-6 uppercase tracking-tight">
                     Secure Your Spot
                 </h2>
 
-                <p className="reg-text text-gray-400 text-lg md:text-xl mb-10 max-w-2xl font-light">
+                <p className="reg-text text-gray-400 text-base md:text-xl mb-8 md:mb-10 max-w-2xl font-light px-4">
                     Join the innovators, the dreamers, and the leaders of tomorrow.
                     Reserve your place at NOVAITION 2026 and be part of the future.
                 </p>

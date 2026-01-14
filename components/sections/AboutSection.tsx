@@ -9,7 +9,7 @@ export default function AboutSection() {
     useSectionAnimations(containerRef);
 
     return (
-        <section id="about" ref={containerRef} className="page-container w-full min-h-screen bg-black text-white py-24 flex flex-col justify-center items-center relative overflow-hidden">
+        <section id="about" ref={containerRef} className="page-container w-full min-h-screen bg-black text-white py-16 md:py-24 flex flex-col justify-center items-center relative overflow-hidden">
 
             {/* Background Elements */}
             <div className="absolute inset-0 bg-background z-0 pointer-events-none">
@@ -22,11 +22,11 @@ export default function AboutSection() {
 
 
             {/* Content Container */}
-            <div className="w-full max-w-7xl mx-auto flex flex-col gap-16 relative z-10">
+            <div className="w-full max-w-7xl mx-auto flex flex-col gap-10 md:gap-16 relative z-10">
 
                 {/* Header */}
                 <div className="text-center relative">
-                    <h1 className="animate-title text-5xl md:text-7xl font-display font-bold uppercase tracking-widest text-white mb-6 transform translate-y-10 opacity-0 relative inset-x-0 mx-auto w-fit">
+                    <h1 className="animate-title text-4xl md:text-5xl lg:text-7xl font-display font-bold uppercase tracking-widest text-white mb-4 md:mb-6 transform translate-y-10 opacity-0 relative inset-x-0 mx-auto w-fit">
                         About <span className="text-primary relative">
                             Nov<span className="inline-block relative">AI</span>tion
                             <svg className="absolute w-full h-2 bottom-0 left-0 translate-y-full text-primary opacity-70" viewBox="0 0 100 10">
@@ -93,7 +93,7 @@ export default function AboutSection() {
             </div>
 
             {/* Footer Logos - Modernized */}
-            <div className="animate-box w-full max-w-4xl mx-auto mt-24 flex items-center justify-between gap-8 opacity-0 z-10 px-6 border-t border-white/10 pt-12">
+            <div className="animate-box w-full max-w-4xl mx-auto mt-16 md:mt-24 flex items-center justify-between gap-8 opacity-0 z-10 px-6 border-t border-white/10 pt-8 md:pt-12">
                 <div className="text-neutral-500 font-mono text-xs uppercase tracking-widest hidden md:block">
                     Organized By
                 </div>

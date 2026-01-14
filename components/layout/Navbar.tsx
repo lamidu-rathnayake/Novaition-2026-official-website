@@ -4,10 +4,13 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import { usePathname } from 'next/navigation';
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
+    const pathname = usePathname();
+    const isHomePage = pathname === '/';
 
     useEffect(() => {
         const handleScroll = () => {
@@ -27,9 +30,17 @@ export default function Navbar() {
         { name: 'CONTACT', href: '#contact' },
     ];
 
+    // Helper to adjust links based on current page
+    const getHref = (href: string) => {
+        if (!isHomePage && href.startsWith('#')) {
+            return `/${href}`;
+        }
+        return href;
+    };
+
     return (
         <nav
-            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'py-4 bg-black/80 backdrop-blur-md border-b border-white/10' : 'py-6 bg-transparent'
+            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled || !isHomePage ? 'py-4 bg-black/80 backdrop-blur-md border-b border-white/10' : 'py-6 bg-transparent'
                 }`}
         >
             <div className="page-container flex items-center justify-between">
@@ -57,7 +68,7 @@ export default function Navbar() {
                         {navItems.map((item) => (
                             <Link
                                 key={item.name}
-                                href={item.href}
+                                href={getHref(item.href)}
                                 className="relative text-white/80 font-mono text-xs tracking-widest hover:text-primary transition-colors uppercase group py-2"
                             >
                                 {item.name}
@@ -107,7 +118,7 @@ export default function Navbar() {
                     {navItems.map((item, index) => (
                         <Link
                             key={item.name}
-                            href={item.href}
+                            href={getHref(item.href)}
                             onClick={() => setIsOpen(false)}
                             className="text-white font-display text-2xl tracking-widest hover:text-primary transition-all uppercase transform hover:scale-110 relative z-10"
                             style={{ transitionDelay: `${index * 50}ms` }}
