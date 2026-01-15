@@ -162,7 +162,8 @@ export default function CountdownTimer({ targetDate = "2026-04-18T00:00:00", sca
     }, [targetDate]);
 
     // Initialize directly since we are now client-only via dynamic import
-    const [timeLeft, setTimeLeft] = useState(calculateTime);
+    // Initialize with zeros to avoid hydration mismatch
+    const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
     const [currentScale, setCurrentScale] = useState(scaleDesktop);
     const container = useRef(null);
 
@@ -183,6 +184,7 @@ export default function CountdownTimer({ targetDate = "2026-04-18T00:00:00", sca
 
     // Timer Logic - Interval only
     useEffect(() => {
+        setTimeLeft(calculateTime()); // Update immediately on client
         const timer = setInterval(() => {
             setTimeLeft(calculateTime());
         }, 1000);

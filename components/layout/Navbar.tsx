@@ -1,93 +1,138 @@
 "use client";
 
-import Link from 'next/link';
-import Image from 'next/image';
-import { useState } from 'react';
-import { Menu, X } from 'lucide-react'; // Imports from lucide-react
+import Link from "next/link";
+import Image from "next/image";
+import { useEffect, useState } from "react";
+import { X } from "lucide-react";
 
 export default function Navbar() {
-    const [isOpen, setIsOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
-    const navItems = [
-        { name: 'SPEAKERS', href: '#speakers' },
-        { name: 'CLOTHING', href: '#clothing' },
-        { name: 'SPONSORS', href: '#sponsors' },
-        { name: 'CAMPUS', href: '#campus' },
-        { name: 'ABOUT', href: '#about' },
-        { name: 'TEAMS', href: '#teams' },
-        { name: 'CONTACT', href: '#contact' },
-    ];
+  // Lock body scroll when menu is open
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [menuOpen]);
 
-    return (
-        // i use page container here to apply the padding from globals.css
-        // py-4 for vertical padding
-        <nav className="page-container absolute top-0 left-0 right-0 z-50 flex items-center justify-between py-4 bg-transparent">
-            {/* Logo */}
-            <div className="relative w-auto h-4 md:h-4 flex justify-center items-center z-50">
-                <Image
-                    src="/navbar-logo.png"
-                    alt="NOVAITION"
-                    width={120}
-                    height={120}
-                    className="w-auto h-full object-contain"
-                    priority
-                />
-            </div>
+  // Track scroll only when menu is closed
+  useEffect(() => {
+    if (menuOpen) return;
 
-            {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center gap-8">
-                <div className="flex items-center gap-8">
-                    {navItems.map((item) => (
-                        <Link
-                            key={item.name}
-                            href={item.href}
-                            className="text-white font-sans text-xs font-bold tracking-wider hover:text-primary transition-colors uppercase"
-                        >
-                            {item.name}
-                        </Link>
-                    ))}
-                </div>
+    const onScroll = () => {
+      setScrolled(window.scrollY > 40);
+    };
 
-                <Link
-                    href="#"
-                    className="inline-flex items-center justify-center bg-primary text-black font-sans text-xs font-bold tracking-wider px-6 py-2 uppercase hover:bg-white transition-colors rounded-tl-[10px] rounded-br-[10px] lg:rounded-tl-[15px] lg:rounded-br-[15px]"
-                >
-                    Register to Event
-                </Link>
-            </div>
+    onScroll();
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [menuOpen]);
 
-            {/* Mobile/Tablet Menu Button */}
-            <button
-                className="lg:hidden z-50 text-white"
-                onClick={() => setIsOpen(!isOpen)}
+  const navItems = [
+    { name: "Speakers", href: "/#speakers" },
+    { name: "Clothing", href: "/#clothing" },
+    { name: "Sponsors", href: "/#sponsors" },
+    { name: "Campus", href: "/#campus" },
+    { name: "About", href: "/#about" },
+    { name: "Teams", href: "/teams" },
+    { name: "Contact", href: "/#contact" },
+  ];
+
+  return (
+    <>
+      {/* NAVBAR */}
+      <header
+        className={`fixed top-0 inset-x-0 z-50 h-16 transition-colors duration-300
+        ${scrolled ? "bg-black/80 backdrop-blur border-b border-white/10" : "bg-transparent"}`}
+      >
+        <div className="page-container h-full flex items-center justify-between">
+          {/* Logo */}
+          <Link href="/" className="relative z-50 ">
+            <Image
+              src="/navbar-logo.png"
+              alt="NOVAITION"
+              width={120}
+              height={32}
+              priority
+              className="h-6 w-auto md:h-7"
+            />
+          </Link>
+
+          {/* Desktop Nav */}
+          <nav className="hidden lg:flex items-center gap-8">
+            {navItems.map((item) => (
+              <Link
+                key={item.name}
+                href={item.href}
+                className="text-xs uppercase tracking-widest text-white/80 hover:text-primary transition"
+              >
+                {item.name}
+              </Link>
+            ))}
+
+            <Link
+              href="/registration"
+              className="relative group overflow-hidden bg-transparent border border-primary/50 hover:border-primary text-primary hover:text-black font-display text-xs font-bold tracking-wider px-6 py-2 uppercase transition-all duration-300"
             >
-                {isOpen ? <X size={28} /> : <Menu size={28} />}
-            </button>
+              <span className="relative z-10 transition-colors duration-300">Register</span>
+              <div className="absolute inset-0 bg-primary transform -translate-x-full skew-x-12 group-hover:translate-x-0 transition-transform duration-300 ease-out z-0"></div>
 
-            {/* Mobile Overlay Menu */}
-            <div
-                className={`fixed inset-0 bg-black/95 backdrop-blur-lg z-40 flex flex-col items-center justify-center gap-8 transition-all duration-300 ease-in-out ${isOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'
-                    }`}
+              {/* Tech Corners */}
+              <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-primary opacity-100 group-hover:border-black transition-colors"></div>
+              <div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-primary opacity-100 group-hover:border-black transition-colors"></div>
+            </Link>
+          </nav>
+
+          {/* Mobile Toggle */}
+          <button
+            aria-label="Toggle menu"
+            onClick={() => setMenuOpen((v) => !v)}
+            className="lg:hidden relative z-50 text-white"
+          >
+            {menuOpen ? <X size={28} /> : (
+              <div className="flex flex-col items-end gap-1.5">
+                <span className="w-8 h-0.5 bg-white" />
+                <span className="w-6 h-0.5 bg-white" />
+                <span className="w-4 h-0.5 bg-white" />
+              </div>
+            )}
+          </button>
+        </div>
+      </header>
+
+      {/* MOBILE OVERLAY */}
+      <div
+        className={`fixed inset-0 z-40 bg-black transition-opacity duration-300
+        ${menuOpen ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"}`}
+      >
+        <nav className="h-screen overflow-y-auto flex flex-col items-center justify-center gap-8 text-center px-6">
+          {navItems.map((item) => (
+            <Link
+              key={item.name}
+              href={item.href}
+              onClick={() => setMenuOpen(false)}
+              className="text-2xl uppercase tracking-widest text-white hover:text-primary transition"
             >
-                {navItems.map((item) => (
-                    <Link
-                        key={item.name}
-                        href={item.href}
-                        onClick={() => setIsOpen(false)}
-                        className="text-white font-display text-lg tracking-widest hover:text-primary transition-colors uppercase"
-                    >
-                        {item.name}
-                    </Link>
-                ))}
+              {item.name}
+            </Link>
+          ))}
 
-                <Link
-                    href="#"
-                    onClick={() => setIsOpen(false)}
-                    className="mt-4 inline-flex items-center justify-center bg-primary text-black font-sans text-xs font-bold tracking-wider px-10 py-4 uppercase hover:bg-white transition-colors rounded-tl-[15px] rounded-br-[15px]"
-                >
-                    Register to Event
-                </Link>
-            </div>
+
+          <Link
+            href="/registration"
+            className="relative group overflow-hidden bg-transparent border border-primary/50 hover:border-primary text-primary active:text-black md:hover:text-black font-display text-xs font-bold tracking-wider px-6 py-2 uppercase transition-all duration-300"
+          >
+            <span className="relative z-10 transition-colors duration-300">Register</span>
+            <div className="absolute inset-0 bg-primary transform -translate-x-full skew-x-12 group-active:translate-x-0 md:group-hover:translate-x-0 transition-transform duration-300 ease-out z-0"></div>
+
+            {/* Tech Corners */}
+            <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-primary opacity-100 group-active:border-black md:group-hover:border-black transition-colors"></div>
+            <div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-primary opacity-100 group-active:border-black md:group-hover:border-black transition-colors"></div>
+          </Link>
         </nav>
-    );
+      </div>
+    </>
+  );
 }

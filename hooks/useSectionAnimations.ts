@@ -13,6 +13,8 @@ export const useSectionAnimations = (containerRef: RefObject<HTMLElement | null>
             const titles = containerRef.current?.querySelectorAll(".animate-title");
             const texts = containerRef.current?.querySelectorAll(".animate-text");
             const boxes = containerRef.current?.querySelectorAll(".animate-box");
+            const boxwithdelay1 = containerRef.current?.querySelectorAll(".animate-boxWithDelay1");
+            const boxwithdelay2 = containerRef.current?.querySelectorAll(".animate-boxWithDelay2");
 
             // Box Reveal Animation for Titles/Subtitles
             // (Requires a wrapper div with overflow-hidden and a specific class structure)
@@ -74,6 +76,47 @@ export const useSectionAnimations = (containerRef: RefObject<HTMLElement | null>
                     }
                 )
             })
+
+            //this is for count down mainly
+            boxwithdelay1?.forEach((box) => {
+                gsap.fromTo(
+                    box,
+                    { scale: 0.95, opacity: 0 },
+                    {
+                        scale: 1,
+                        opacity: 1,
+                        duration: 1,
+                        delay: 4.5,
+                        ease: "power2.out",
+                        scrollTrigger: {
+                            trigger: box,
+                            start: "bottom bottom",
+                            toggleActions: "play none none reverse",
+                        },
+                    }
+                );
+            });
+
+            //this is for count down mainly
+            boxwithdelay2?.forEach((box) => {
+                gsap.fromTo(
+                    box,
+                    { scale: 0.95, opacity: 0 },
+                    {
+                        scale: 1,
+                        opacity: 1,
+                        duration: 1,
+                        delay: 4.5,
+                        ease: "power2.out",
+                        scrollTrigger: {
+                            trigger: box,
+                            start: "bottom bottom",
+                            toggleActions: "play none none reverse",
+                        },
+                    }
+                );
+            });
+
 
             // Staggered Grid/Children Animation
             const grids = containerRef.current?.querySelectorAll(".animate-grid");
