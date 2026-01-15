@@ -6,10 +6,17 @@ import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { useSectionAnimations } from '@/hooks/useSectionAnimations';
 
-const sponsors = Array(10).fill({
-    name: "IPSUM",
-    logo: "/hero-logo.png" // Placeholder
-});
+const sponsors = [
+  { name: "Speaker One", logo: "/hero-logo.png" },
+  { name: "Speaker Two", logo: "/sb-logo-white.png" },
+  { name: "Speaker Three", logo: "/IAS New Logo 2024 White.png" },
+  { name: "Speaker One", logo: "/hero-logo.png" },
+  { name: "Speaker Two", logo: "/sb-logo-white.png" },
+  { name: "Speaker Three", logo: "/IAS New Logo 2024 White.png" },
+  { name: "Speaker One", logo: "/hero-logo.png" },
+  { name: "Speaker Two", logo: "/sb-logo-white.png" },
+  { name: "Speaker Three", logo: "/IAS New Logo 2024 White.png" }
+];
 
 export default function Sponsers() {
     const containerRef = useRef<HTMLDivElement>(null);
@@ -40,8 +47,8 @@ export default function Sponsers() {
             {/* Title */}
             <div className="w-full mb-12 flex justify-center">
                 <div className="overflow-hidden">
-                    <h2 className="animate-title text-4xl md:text-7xl font-bold text-center uppercase tracking-normal transform translate-y-full opacity-0">
-                        OUR MAIN <span className='text-primary'>SPONSORS</span>
+                    <h2 className="animate-title text-6xl md:text-7xl font-bold text-center uppercase tracking-normal transform translate-y-full opacity-0">
+                        MAIN <span className='text-primary'>SPONSORS</span>
                     </h2>
                 </div>
             </div>

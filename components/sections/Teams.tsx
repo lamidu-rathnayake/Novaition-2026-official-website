@@ -21,28 +21,28 @@ const teams: Team[] = [
         name: "PROGRAMMING TEAM",
         id: "DEV_OPS_01",
         members: [
-            { name: "John Doe", role: "Lead Developer", image: "/placeholder-user.jpg" },
-            { name: "Jane Smith", role: "Backend Developer", image: "/placeholder-user.jpg" },
-            { name: "Mike Johnson", role: "Frontend Developer", image: "/placeholder-user.jpg" },
-            { name: "Sarah Williams", role: "DevOps Engineer", image: "/placeholder-user.jpg" },
+            { name: "John Doe", role: "Lead Developer", image: "/lamidu-avatar.png" },
+            { name: "Jane Smith", role: "Backend Developer", image: "/lamidu-avatar.png" },
+            { name: "Mike Johnson", role: "Frontend Developer", image: "" },
+            { name: "Sarah Williams", role: "DevOps Engineer", image: "/lamidu-avatar.png" },
         ],
     },
     {
         name: "DESIGN TEAM",
         id: "CREATIVE_02",
         members: [
-            { name: "Alex Turner", role: "Lead Designer", image: "/placeholder-user.jpg" },
-            { name: "Olivia Wilson", role: "Graphic Designer", image: "/placeholder-user.jpg" },
-            { name: "Daniel Martinez", role: "Motion Designer", image: "/placeholder-user.jpg" },
+            { name: "Alex Turner", role: "Lead Designer", image: "/lamidu-avatar.png" },
+            { name: "Olivia Wilson", role: "Graphic Designer", image: "/lamidu-avatar.png" },
+            { name: "Daniel Martinez", role: "Motion Designer", image: "/lamidu-avatar.png" },
         ],
     },
     {
         name: "MARKETING TEAM",
         id: "GROWTH_03",
         members: [
-            { name: "James White", role: "Marketing Head", image: "/placeholder-user.jpg" },
-            { name: "Isabella Thomas", role: "Content Strategist", image: "/placeholder-user.jpg" },
-            { name: "William Harris", role: "Social Media Manager", image: "/placeholder-user.jpg" },
+            { name: "James White", role: "Marketing Head", image: "/lamidu-avatar.png" },
+            { name: "Isabella Thomas", role: "Content Strategist", image: "/lamidu-avatar.png" },
+            { name: "William Harris", role: "Social Media Manager", image: "/lamidu-avatar.png" },
         ],
     },
 ];
@@ -52,7 +52,7 @@ const Teams = () => {
     useSectionAnimations(containerRef);
 
     return (
-        <section id="teams" ref={containerRef} className="page-container py-24 min-h-screen bg-black text-white relative overflow-hidden">
+        <section id="teams" ref={containerRef} className="page-container py-16 md:py-20 min-h-screen bg-black text-white relative overflow-hidden">
 
             {/* Background Elements */}
             <div className="absolute inset-0 z-0 pointer-events-none">
@@ -62,15 +62,13 @@ const Teams = () => {
 
             {/* Header */}
             <div className="w-full mb-24 flex flex-col items-center">
-                <div className="overflow-hidden mb-4">
-                    <h2 className="animate-title text-6xl md:text-8xl font-display font-bold text-center tracking-widest text-white uppercase transform translate-y-full opacity-0">
+                <div className="overflow-hidden mb-1">
+                    <h2 className="animate-title text-6xl md:text-8xl font-sans font-bold text-center tracking-widest text-white uppercase transform translate-y-full opacity-0">
                         OUR TEAMS
                     </h2>
                 </div>
-                <div className="flex items-center gap-2 animate-box opacity-0">
-                    <div className="h-[2px] w-24 bg-gradient-to-r from-transparent to-primary" />
-                    <div className="text-primary font-mono text-xs tracking-[0.5em] uppercase">Personnel</div>
-                    <div className="h-[2px] w-24 bg-gradient-to-l from-transparent to-primary" />
+                <div className="flex flex-col items-center gap-02 animate-box opacity-0">
+                    <div className="animate-box text-primary font-display text-xs tracking-[0.1em] uppercase text-cente">Hard workers behind the scene</div>
                 </div>
             </div>
 
@@ -82,9 +80,8 @@ const Teams = () => {
                     >
                         {/* Team Header */}
                         <div className="flex flex-col md:flex-row items-baseline gap-4 mb-12 border-b border-white/10 pb-4">
-                            <span className="font-mono text-primary/50 text-sm">0{idx + 1} // {team.id}</span>
                             <div className="overflow-hidden">
-                                <h3 className="animate-title text-3xl md:text-4xl font-display font-bold text-white uppercase tracking-wider transform translate-y-full opacity-0">
+                                <h3 className="animate-title text-3xl md:text-4xl font-sans font-bold text-white uppercase tracking-wider transform translate-y-full opacity-0">
                                     {team.name}
                                 </h3>
                             </div>
@@ -108,13 +105,15 @@ const Teams = () => {
 
                                         {/* Avatar Hexagon */}
                                         <div className="relative w-24 h-24 mb-6">
-                                            <div className="absolute inset-0 bg-neutral-900 clip-path-hex border border-white/10 group-hover:border-primary/50 transition-colors duration-500 flex items-center justify-center overflow-hidden">
-                                                {/* Placeholder for now */}
-                                                <div className="text-4xl text-neutral-800 font-thin select-none">?</div>
-                                                {/* <Image src={member.image} alt={member.name} fill className="object-cover" /> */}
+                                            <div className="rounded-full absolute inset-0 bg-neutral-900 clip-path-hex border border-x-white/10 border-y-white/0 group-hover:border-x-primary/50 transition-colors duration-500 flex items-center justify-center overflow-hidden">
+                                                { 
+                                                    member.image === "" 
+                                                        ?   <div className="text-4xl text-neutral-800 font-thin select-none">:|</div>
+                                                        :   <Image src={member.image} alt={member.name} fill className="object-cover" />
+                                                }
 
                                                 {/* Scanline overlay */}
-                                                <div className="absolute inset-0 bg-[linear-gradient(transparent_50%,rgba(0,0,0,0.5)_50%)] bg-[size:100%_4px] opacity-20 pointer-events-none" />
+                                                <div className="absolute inset-0 bg-[linear-gradient(transparent_50%,rgba(0,0,0,0.5)_50%)] bg-size[100%_4px] opacity-20 pointer-events-none" />
                                             </div>
                                         </div>
 

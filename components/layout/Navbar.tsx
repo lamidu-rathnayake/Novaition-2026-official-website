@@ -1,132 +1,138 @@
 "use client";
 
-import Link from 'next/link';
-import Image from 'next/image';
-import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import Link from "next/link";
+import Image from "next/image";
+import { useEffect, useState } from "react";
+import { X } from "lucide-react";
 
 export default function Navbar() {
-    const [isOpen, setIsOpen] = useState(false);
-    const [isScrolled, setIsScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
-    useEffect(() => {
-        const handleScroll = () => {
-            setIsScrolled(window.scrollY > 50);
-        };
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
+  // Lock body scroll when menu is open
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [menuOpen]);
 
-    const navItems = [
-        { name: 'SPEAKERS', href: '/#speakers' },
-        { name: 'CLOTHING', href: '/#clothing' },
-        { name: 'SPONSORS', href: '/#sponsors' },
-        { name: 'CAMPUS', href: '/#campus' },
-        { name: 'ABOUT', href: '/#about' },
-        { name: 'TEAMS', href: '/teams' },
-        { name: 'CONTACT', href: '/#contact' },
-    ];
+  // Track scroll only when menu is closed
+  useEffect(() => {
+    if (menuOpen) return;
 
-    return (
-        <nav
-            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'py-4 bg-black/80 backdrop-blur-md border-b border-white/10' : 'py-6 bg-transparent'
-                }`}
-        >
-            <div className="page-container flex items-center justify-between">
+    const onScroll = () => {
+      setScrolled(window.scrollY > 40);
+    };
 
-                {/* Logo */}
-                <Link href="/" className="relative z-50 group">
-                    <div className="relative h-6 md:h-8 w-auto transition-transform duration-300 group-hover:scale-105">
-                        <Image
-                            src="/navbar-logo.png"
-                            alt="NOVAITION"
-                            width={120}
-                            height={120}
-                            className="w-auto h-full object-contain"
-                            priority
-                        />
-                    </div>
-                </Link>
+    onScroll();
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [menuOpen]);
 
-                {/* Desktop Navigation */}
-                <div className="hidden lg:flex items-center gap-8">
-                    {/* Decorative Line */}
-                    {/* <div className="h-px w-16 bg-gradient-to-r from-transparent to-white/20"></div> */}
+  const navItems = [
+    { name: "Speakers", href: "/#speakers" },
+    { name: "Clothing", href: "/#clothing" },
+    { name: "Sponsors", href: "/#sponsors" },
+    { name: "Campus", href: "/#campus" },
+    { name: "About", href: "/#about" },
+    { name: "Teams", href: "/teams" },
+    { name: "Contact", href: "/#contact" },
+  ];
 
-                    <div className="flex items-center gap-8">
-                        {navItems.map((item) => (
-                            <Link
-                                key={item.name}
-                                href={item.href}
-                                className="relative text-white/80 font-sans text-xs tracking-widest hover:text-primary transition-colors uppercase group py-2"
-                            >
-                                {item.name}
-                                <span className="absolute bottom-0 left-0 w-0 h-px bg-primary transition-all duration-300 group-hover:w-full"></span>
-                            </Link>
-                        ))}
-                    </div>
+  return (
+    <>
+      {/* NAVBAR */}
+      <header
+        className={`fixed top-0 inset-x-0 z-50 h-16 transition-colors duration-300
+        ${scrolled ? "bg-black/80 backdrop-blur border-b border-white/10" : "bg-transparent"}`}
+      >
+        <div className="page-container h-full flex items-center justify-between">
+          {/* Logo */}
+          <Link href="/" className="relative z-50 ">
+            <Image
+              src="/navbar-logo.png"
+              alt="NOVAITION"
+              width={120}
+              height={32}
+              priority
+              className="h-6 w-auto md:h-7"
+            />
+          </Link>
 
-                    {/* Decorative Line */}
-                    {/* <div className="h-px w-16 bg-gradient-to-l from-transparent to-white/20"></div> */}
+          {/* Desktop Nav */}
+          <nav className="hidden lg:flex items-center gap-8">
+            {navItems.map((item) => (
+              <Link
+                key={item.name}
+                href={item.href}
+                className="text-xs uppercase tracking-widest text-white/80 hover:text-primary transition"
+              >
+                {item.name}
+              </Link>
+            ))}
 
-                    <Link
-                        href="/registration"
-                        className="relative group overflow-hidden bg-transparent border border-primary/50 hover:border-primary text-primary hover:text-black font-sans text-xs font-bold tracking-wider px-6 py-2 uppercase transition-all duration-300"
-                    >
-                        <span className="relative z-10 transition-colors duration-300">Register Access</span>
-                        <div className="absolute inset-0 bg-primary transform -translate-x-full skew-x-12 group-hover:translate-x-0 transition-transform duration-300 ease-out z-0"></div>
+            <Link
+              href="/registration"
+              className="relative group overflow-hidden bg-transparent border border-primary/50 hover:border-primary text-primary hover:text-black font-display text-xs font-bold tracking-wider px-6 py-2 uppercase transition-all duration-300"
+            >
+              <span className="relative z-10 transition-colors duration-300">Register</span>
+              <div className="absolute inset-0 bg-primary transform -translate-x-full skew-x-12 group-hover:translate-x-0 transition-transform duration-300 ease-out z-0"></div>
 
-                        {/* Tech Corners */}
-                        <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-primary opacity-100 group-hover:border-black transition-colors"></div>
-                        <div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-primary opacity-100 group-hover:border-black transition-colors"></div>
-                    </Link>
-                </div>
+              {/* Tech Corners */}
+              <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-primary opacity-100 group-hover:border-black transition-colors"></div>
+              <div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-primary opacity-100 group-hover:border-black transition-colors"></div>
+            </Link>
+          </nav>
 
-                {/* Mobile/Tablet Menu Button */}
-                <button
-                    className="lg:hidden z-50 text-white hover:text-primary transition-colors"
-                    onClick={() => setIsOpen(!isOpen)}
-                >
-                    {isOpen ? <X size={28} /> : (
-                        <div className="flex flex-col items-end gap-1.5 group">
-                            <span className="w-8 h-0.5 bg-white group-hover:bg-primary transition-colors"></span>
-                            <span className="w-6 h-0.5 bg-white group-hover:bg-primary transition-colors"></span>
-                            <span className="w-4 h-0.5 bg-white group-hover:bg-primary transition-colors"></span>
-                        </div>
-                    )}
-                </button>
+          {/* Mobile Toggle */}
+          <button
+            aria-label="Toggle menu"
+            onClick={() => setMenuOpen((v) => !v)}
+            className="lg:hidden relative z-50 text-white"
+          >
+            {menuOpen ? <X size={28} /> : (
+              <div className="flex flex-col items-end gap-1.5">
+                <span className="w-8 h-0.5 bg-white" />
+                <span className="w-6 h-0.5 bg-white" />
+                <span className="w-4 h-0.5 bg-white" />
+              </div>
+            )}
+          </button>
+        </div>
+      </header>
 
-                {/* Mobile Overlay Menu */}
-                <div
-                    className={`fixed inset-0 bg-black/95 backdrop-blur-xl z-40 flex flex-col items-center justify-center gap-8 transition-all duration-500 ease-out ${isOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'
-                        }`}
-                >
-                    {/* Grid Background in Menu */}
-                    <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:3rem_3rem] pointer-events-none"></div>
+      {/* MOBILE OVERLAY */}
+      <div
+        className={`fixed inset-0 z-40 bg-black transition-opacity duration-300
+        ${menuOpen ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"}`}
+      >
+        <nav className="h-screen overflow-y-auto flex flex-col items-center justify-center gap-8 text-center px-6">
+          {navItems.map((item) => (
+            <Link
+              key={item.name}
+              href={item.href}
+              onClick={() => setMenuOpen(false)}
+              className="text-2xl uppercase tracking-widest text-white hover:text-primary transition"
+            >
+              {item.name}
+            </Link>
+          ))}
 
-                    {navItems.map((item, index) => (
-                        <Link
-                            key={item.name}
-                            href={item.href}
-                            onClick={() => setIsOpen(false)}
-                            className="text-white font-display text-2xl tracking-widest hover:text-primary transition-all uppercase transform hover:scale-110 relative z-10"
-                            style={{ transitionDelay: `${index * 50}ms` }}
-                        >
-                            <span className="text-primary/50 text-xs font-mono mr-4">0{index + 1}</span>
-                            {item.name}
-                        </Link>
-                    ))}
 
-                    <Link
-                        href="/registration"
-                        onClick={() => setIsOpen(false)}
-                        className="mt-8 relative inline-flex items-center justify-center bg-primary text-black font-display font-bold tracking-widest px-10 py-4 uppercase hover:bg-white transition-colors clip-path-polygon z-10"
-                        style={{ clipPath: 'polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%)' }}
-                    >
-                        Initialize Registration
-                    </Link>
-                </div>
-            </div>
+          <Link
+            href="/registration"
+            className="relative group overflow-hidden bg-transparent border border-primary/50 hover:border-primary text-primary active:text-black md:hover:text-black font-display text-xs font-bold tracking-wider px-6 py-2 uppercase transition-all duration-300"
+          >
+            <span className="relative z-10 transition-colors duration-300">Register</span>
+            <div className="absolute inset-0 bg-primary transform -translate-x-full skew-x-12 group-active:translate-x-0 md:group-hover:translate-x-0 transition-transform duration-300 ease-out z-0"></div>
+
+            {/* Tech Corners */}
+            <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-primary opacity-100 group-active:border-black md:group-hover:border-black transition-colors"></div>
+            <div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-primary opacity-100 group-active:border-black md:group-hover:border-black transition-colors"></div>
+          </Link>
         </nav>
-    );
+      </div>
+    </>
+  );
 }

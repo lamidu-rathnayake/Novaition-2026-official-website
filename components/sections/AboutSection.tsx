@@ -26,9 +26,9 @@ export default function AboutSection() {
 
                 {/* Header */}
                 <div className="text-center relative">
-                    <h1 className="animate-title text-5xl md:text-7xl font-sans font-bold uppercase tracking-normal text-white mb-6 transform translate-y-10 opacity-0 relative inset-x-0 mx-auto w-fit">
+                    <h1 className="animate-title text-6xl md:text-7xl font-sans font-bold uppercase tracking-normal text-white mb-6 transform translate-y-10 opacity-0 relative inset-x-0 mx-auto w-fit">
                         About Nov<span className="inline-block relative text-primary">AI</span>tion
-                           
+
                     </h1>
                     <p className="animate-text font-sans text-lg md:text-xl text-neutral-400 max-w-2xl mx-auto text-center opacity-0 tracking-wide">
                         Sri Lanka&apos;s Premier Student Forum on Artificial Intelligence and Modern Business Trends
@@ -89,30 +89,44 @@ export default function AboutSection() {
             </div>
 
             {/* Footer Logos - Modernized */}
-            <div className="animate-box w-full max-w-4xl mx-auto mt-24 flex items-center justify-between gap-8 opacity-0 z-10 px-6 border-t border-white/10 pt-12">
-                <div className="text-neutral-500 font-mono text-xs uppercase tracking-widest hidden md:block">
-                    Organized By
-                </div>
-                <div className="flex items-center gap-8 md:gap-16 mx-auto md:mx-0 grayscale hover:grayscale-0 transition-all duration-500">
-                    <div className="relative w-32 h-12 opacity-80 hover:opacity-100 transition-opacity">
-                        <Image
-                            src="/sb-logo-white.png"
-                            alt="SLTC Student Branch"
-                            fill
-                            className="object-contain"
-                        />
+            <div className="w-full max-w-4xl mx-auto mt-24 px-6 z-10">
+                <div className="flex items-center justify-between gap-8 border-t border-white/10 pt-12 opacity-0 animate-box">
+
+                    {/* Label */}
+                    <div className="hidden md:block text-neutral-500 font-mono text-xs uppercase tracking-widest shrink-0">
+                        Organized By
                     </div>
-                    <div className="w-px h-10 bg-white/20"></div>
-                    <div className="relative w-32 h-12 opacity-80 hover:opacity-100 transition-opacity">
-                        <Image
-                            src="/IAS New Logo 2024 White.png"
-                            alt="IAS Logo"
-                            fill
-                            className="object-contain"
-                        />
+
+                    {/* Logos */}
+                    <div className="flex items-center justify-center gap-10 md:gap-16 mx-auto md:mx-0 flex-wrap overflow-hidden grayscale hover:grayscale-0 transition-all duration-500">
+
+                        {/* Logo 1 */}
+                        <div className="relative w-32 h-12 shrink-0 opacity-80 hover:opacity-100 transition-opacity">
+                            <Image
+                                src="/sb-logo-white.png"
+                                alt="SLTC Student Branch"
+                                fill
+                                className="object-contain"
+                            />
+                        </div>
+
+                        {/* Divider */}
+                        <div className="hidden md:block w-px h-10 bg-white/20 shrink-0"></div>
+
+                        {/* Logo 2 */}
+                        <div className="relative w-32 h-12 shrink-0 opacity-80 hover:opacity-100 transition-opacity">
+                            <Image
+                                src="/IAS New Logo 2024 White.png"
+                                alt="IAS Logo"
+                                fill
+                                className="object-contain"
+                            />
+                        </div>
+
                     </div>
                 </div>
             </div>
+
 
         </section>
     );

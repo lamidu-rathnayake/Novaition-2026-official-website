@@ -128,7 +128,7 @@ export default function Speakers() {
                                 src={currentSpeaker.image}
                                 alt={currentSpeaker.name}
                                 fill
-                                className="object-cover object-top transition-transform duration-700 group-hover:scale-110 filter grayscale group-hover:grayscale-0"
+                                className="object-cover object-top transition-transform duration-700 group-hover:scale-110 filter md:grayscale group-hover:grayscale-0"
                                 priority
                             />
                             {/* Overlay Gradient */}
@@ -158,7 +158,7 @@ export default function Speakers() {
                             {currentSpeaker.name}
                         </h3>
 
-                        <p className="animate-box font-normal text-primary text-sm md:text-base tracking-widest border-b-2 border-primary mb-8 mx-auto md:mx-0 w-fit text-left">
+                        <p className="animate-box font-normal text-primary text-sm md:text-base tracking-widest mb-8 mx-auto md:mx-0 w-fit text-left">
                             {currentSpeaker.title}
                         </p>
 
@@ -170,7 +170,7 @@ export default function Speakers() {
                         <div className="flex items-center gap-6 justify-center md:justify-start">
                             <button
                                 onClick={prevSlide}
-                                className="group relative w-14 h-14 flex items-center justify-center border border-white/20 bg-white/5 hover:bg-primary hover:border-primary transition-all duration-300 rounded-full"
+                                className="group relative w-14 h-14 flex items-center justify-center border border-white/10 bg-black hover:bg-primary hover:border-primary transition-all duration-300 rounded-full"
                             >
                                 <ChevronLeft className="text-white group-hover:text-black transition-colors" />
                             </button>
@@ -187,7 +187,7 @@ export default function Speakers() {
 
                             <button
                                 onClick={nextSlide}
-                                className="group relative w-14 h-14 flex items-center justify-center border border-white/20 bg-white/5 hover:bg-primary hover:border-primary transition-all duration-300 rounded-full"
+                                className="group relative w-14 h-14 flex items-center justify-center border border-white/10 bg-black hover:bg-primary hover:border-primary transition-all duration-300 rounded-full"
                             >
                                 <ChevronRight className="text-white group-hover:text-black transition-colors" />
                             </button>

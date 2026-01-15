@@ -18,28 +18,29 @@ function TShirtModel() {
                 <group>
                     {/* Body */}
                     <mesh castShadow receiveShadow position={[0, 0, 0]}>
-                        <boxGeometry args={[1.5, 2.5, 0.5]} />
-                        {/* FIX: envMapIntensity added here */}
+                        <boxGeometry args={[1.2, 2, 0.4]} /> {/* smaller width, height, depth */}
                         <meshStandardMaterial color="#202020" roughness={0.3} metalness={0.4} envMapIntensity={0.5} />
                     </mesh>
+
                     {/* Left Sleeve */}
-                    <mesh castShadow receiveShadow position={[-1, 0.75, 0]} rotation={[0, 0, 0.2]}>
-                        <boxGeometry args={[0.8, 1, 0.5]} />
-                        {/* FIX: envMapIntensity added here */}
+                    <mesh castShadow receiveShadow position={[-0.8, 0.6, 0]} rotation={[0, 0, 0.2]}>
+                        <boxGeometry args={[0.64, 0.8, 0.4]} /> {/* reduced proportionally */}
                         <meshStandardMaterial color="#202020" roughness={0.3} metalness={0.4} envMapIntensity={0.5} />
                     </mesh>
+
                     {/* Right Sleeve */}
-                    <mesh castShadow receiveShadow position={[1, 0.75, 0]} rotation={[0, 0, -0.2]}>
-                        <boxGeometry args={[0.8, 1, 0.5]} />
-                        {/* FIX: envMapIntensity added here */}
+                    <mesh castShadow receiveShadow position={[0.8, 0.6, 0]} rotation={[0, 0, -0.2]}>
+                        <boxGeometry args={[0.64, 0.8, 0.4]} />
                         <meshStandardMaterial color="#202020" roughness={0.3} metalness={0.4} envMapIntensity={0.5} />
                     </mesh>
+
                     {/* Neck */}
-                    <mesh castShadow receiveShadow position={[0, 1.25, 0]}>
-                        <cylinderGeometry args={[0.4, 0.4, 0.1, 32]} />
+                    <mesh castShadow receiveShadow position={[0, 1, 0]}>
+                        <cylinderGeometry args={[0.32, 0.32, 0.08, 32]} /> {/* slightly smaller neck */}
                         <meshStandardMaterial color="#101010" />
                     </mesh>
                 </group>
+
             </Float>
         </group>
     );
@@ -62,7 +63,7 @@ function RotatingGrid() {
 export default function Clothing() {
     const marqueeRef = useRef<HTMLDivElement>(null);
     const containerRef = useRef<HTMLElement>(null);
-    
+
     useSectionAnimations(containerRef);
 
     useLayoutEffect(() => {
@@ -73,7 +74,7 @@ export default function Clothing() {
                 duration: 50,
                 ease: 'linear',
             });
-            
+
             gsap.to('.scanner-line', {
                 top: '100%',
                 repeat: -1,
@@ -87,7 +88,7 @@ export default function Clothing() {
 
     return (
         <section id="clothing" ref={containerRef} className="relative w-full min-h-screen overflow-hidden bg-black text-white py-4 md:py-8 page-container flex flex-col justify-between">
-            
+
             {/* --- BACKGROUND --- */}
             <div className="absolute inset-0 z-0 select-none pointer-events-none">
                 <Image
@@ -98,16 +99,16 @@ export default function Clothing() {
                     priority
                 />
                 <div className="absolute inset-0 bg-radial-gradient(circle at center, transparent 0%, black 90%) pointer-events-none"></div>
-                <div className="absolute inset-0 bg-[url('/grid-pattern.png')] opacity-10 pointer-events-none mix-blend-screen" 
-                     style={{ backgroundImage: 'radial-gradient(circle, #333 1px, transparent 1px)', backgroundSize: '30px 30px' }}>
+                <div className="absolute inset-0 bg-[url('/grid-pattern.png')] opacity-10 pointer-events-none mix-blend-screen"
+                    style={{ backgroundImage: 'radial-gradient(circle, #333 1px, transparent 1px)', backgroundSize: '30px 30px' }}>
                 </div>
             </div>
 
             {/* --- TITLE SECTION --- */}
-            <div className="w-full mb-4 flex flex-col items-center z-20 relative pt-12 md:pt-12 shrink-0">
+            <div className="w-full mb-4 flex flex-col items-center z-20 relative pt-12 md:pt-6 shrink-0">
                 <div className="overflow-hidden">
                     <h2 className="animate-title text-6xl md:text-7xl font-sans text-center tracking-wider text-white uppercase transform translate-y-full opacity-0 drop-shadow-lg">
-                        MERCH DROP
+                        <span className='text-primary'>MERCH</span> DROP
                     </h2>
                 </div>
                 <div className="flex gap-4 items-center mt-2 md:mt-0 opacity-80 animate-box">
@@ -120,37 +121,37 @@ export default function Clothing() {
             </div>
 
             {/* --- 3D CANVAS AREA --- */}
-            <div className="animate-box absolute inset-0 z-10 pointer-events-none flex items-center justify-center opacity-0">                
+            <div className="animate-box absolute inset-0 z-10 pointer-events-none flex items-center justify-center opacity-0">
                 <div className="w-full h-full pointer-events-auto relative -mt-20 md:mt-0">
-                    <Canvas 
-                        shadows 
-                        camera={{ position: [0, 0, 8], fov: 35 }} 
+                    <Canvas
+                        shadows
+                        camera={{ position: [0, 0, 8], fov: 35 }}
                         gl={{ preserveDrawingBuffer: true, antialias: true }}
                     >
                         <ambientLight intensity={0.4} />
                         <SpotLight position={[5, 8, 5]} angle={0.5} penumbra={1} intensity={1200} castShadow color="#ffffff" />
-                        
+
                         <Sparkles count={25} scale={7} size={3} speed={0.3} opacity={0.4} color="#ccff00" />
 
                         <Suspense fallback={null}>
-                            <group position={[0, 0.5, 0]}> 
+                            <group position={[0, 0.2, 0]}>
                                 <TShirtModel />
                             </group>
-                            
+
                             {/* FIX: Removed envMapIntensity from here */}
                             <Environment preset="city" />
-                            
+
                             <RotatingGrid />
                             <ContactShadows position={[0, -2.5, 0]} opacity={0.7} scale={10} blur={1.5} far={4} resolution={256} color="#000000" />
                         </Suspense>
-                        
-                        <OrbitControls 
-                            enableZoom={false} 
-                            enablePan={false} 
-                            autoRotate 
-                            autoRotateSpeed={0.8} 
-                            minPolarAngle={Math.PI / 2.5} 
-                            maxPolarAngle={Math.PI / 1.5} 
+
+                        <OrbitControls
+                            enableZoom={false}
+                            enablePan={false}
+                            autoRotate
+                            autoRotateSpeed={0.8}
+                            minPolarAngle={Math.PI / 2.5}
+                            maxPolarAngle={Math.PI / 1.5}
                         />
                     </Canvas>
                 </div>
@@ -159,7 +160,7 @@ export default function Clothing() {
             {/* --- FOOTER CONTENT --- */}
             <div className="relative z-30 flex-1 flex flex-col justify-end items-center text-center pb-12 md:pb-14 gap-6 pointer-events-none mt-auto w-full">
                 <div className="animate-box pointers-events-auto relative py-6 md:py-8 flex flex-col md:flex-row items-center justify-between gap-4 md:gap-16 overflow-hidden pointer-events-auto opacity-0 w-[90%] md:w-full">
-                    
+
                     {/* Price Tag */}
                     <div className="flex-1 flex flex-row md:flex-col items-baseline md:items-start gap-3 md:gap-0">
                         <p className="text-[10px] text-neutral-400 font-mono uppercase tracking-widest md:mb-2">Price</p>
@@ -171,12 +172,12 @@ export default function Clothing() {
                     {/* Button */}
                     <Link href="/pre-order" className="flex-1 w-1/2 md:w-auto">
                         <button className="w-full md:w-auto group relative bg-primary text-black px-6 py-3 md:px-10 md:py-4 text-sm md:text-lg font-bold uppercase tracking-wider overflow-hidden transition-all duration-300 hover:shadow-[0_0_40px_rgba(204,255,0,0.5)] rounded-sm">
-                             <span className="relative z-10 flex items-center justify-center gap-2 md:gap-3">
+                            <span className="relative z-10 flex items-center justify-center gap-2 md:gap-3">
                                 Pre-Order
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform">
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
                                 </svg>
-                             </span>
+                            </span>
                         </button>
                     </Link>
 
@@ -199,7 +200,7 @@ export default function Clothing() {
                 <div className="marquee-content flex whitespace-nowrap will-change-transform opacity-60">
                     {[...Array(10)].map((_, i) => (
                         <div key={i} className="flex items-center mx-4 md:mx-8">
-                             <span className="text-white font-mono text-[10px] md:text-xs uppercase tracking-[0.3em]">
+                            <span className="text-white font-mono text-[10px] md:text-xs uppercase tracking-[0.3em]">
                                 /// EXCLUSIVE NOVAITION WEAR /// LIMITED EDITION RUN ///
                             </span>
                         </div>

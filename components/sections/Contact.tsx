@@ -20,8 +20,8 @@ export default function Contact() {
             {/* Title Block */}
             <div className="w-full mb-20 flex flex-col items-center z-10">
                 <div className="overflow-hidden">
-                    <h2 className="animate-title text-6xl md:text-7 xl font-sans font-bold text-center tracking-normal text-white uppercase transform translate-y-full opacity-0">
-                        CONTACT
+                    <h2 className="animate-title text-6xl md:text-7 font-sans font-bold text-center tracking-normal text-white uppercase transform translate-y-full opacity-0">
+                        CONTACT US
                     </h2>
                 </div>
             </div>
