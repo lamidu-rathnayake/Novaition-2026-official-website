@@ -158,7 +158,7 @@ export default function Speakers() {
                             {currentSpeaker.name}
                         </h3>
 
-                        <p className="animate-box font-normal text-primary text-sm md:text-base tracking-widest mb-8 mx-auto md:mx-0 w-fit text-left">
+                        <p className="animate-box font-normal text-primary text-sm md:text-base tracking-widest mb-8 mx-auto md:mx-0 w-fit text-center md:text-left">
                             {currentSpeaker.title}
                         </p>
 

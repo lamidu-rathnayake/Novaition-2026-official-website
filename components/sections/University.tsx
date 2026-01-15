@@ -27,7 +27,7 @@ export default function University() {
 
                 {/* Title */}
                 <div className="overflow-hidden">
-                    <h2 className="animate-title text-5xl md:text-7xl font-bold uppercase leading-tight tracking-normal transform translate-y-full opacity-0">
+                    <h2 className="animate-title text-5xl md:text-7xl font-bold uppercase leading-none tracking-normal transform translate-y-full opacity-0">
                         <span className="text-[#ccff00]">SRI LANKA</span> <span className="text-white">TECHNOLOGY</span>
                         <br />
                         <span className="text-white">CAMPUS</span>
@@ -35,7 +35,7 @@ export default function University() {
                 </div>
 
                 {/* Description */}
-                <p className="animate-text text-[#ccff00] text-sm md:text-base font-bold uppercase tracking-widest max-w-3xl leading-relaxed opacity-0">
+                <p className="animate-text text-white/80 text-sm md:text-display font-normal uppercase tracking-normal max-w-xl leading-relaxed opacity-0">
                     OUR INSTITUTION IS BUILT ON A FOUNDATION OF TRANSFORMATIVE LEARNING, WHERE STUDENTS ARE NOT JUST TAUGHT BUT ARE CHALLENGED TO THINK CRITICALLY, INNOVATE, AND LEAD. WE ARE COMMITTED TO UPHOLDING OUR LONG-STANDING TRADITION OF EXCELLENCE.
                 </p>
 
@@ -61,7 +61,6 @@ export default function University() {
                     />
                 </div>
             </div>
-
         </section>
     );
 }

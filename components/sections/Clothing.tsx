@@ -107,7 +107,7 @@ export default function Clothing() {
             {/* --- TITLE SECTION --- */}
             <div className="w-full mb-4 flex flex-col items-center z-20 relative pt-12 md:pt-6 shrink-0">
                 <div className="overflow-hidden">
-                    <h2 className="animate-title text-6xl md:text-7xl font-sans text-center tracking-wider text-white uppercase transform translate-y-full opacity-0 drop-shadow-lg">
+                    <h2 className="animate-title text-6xl md:text-7xl font-extrabold font-sans text-center tracking-wider text-white uppercase transform translate-y-full opacity-0 drop-shadow-lg">
                         <span className='text-primary'>MERCH</span> DROP
                     </h2>
                 </div>
